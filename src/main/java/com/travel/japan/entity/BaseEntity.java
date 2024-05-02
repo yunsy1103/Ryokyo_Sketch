@@ -23,7 +23,7 @@ public class BaseEntity {
     private LocalDateTime createdAt;
     @JsonIgnore
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    private LocalDateTime modifiedAt;
     @JsonIgnore
     private LocalDateTime deletedAt; //null일 경우 삭제가 아니니까 null인 것들만 조회를 하면 삭제된 것들은 조회가 자동으로 안 되니까 데이터는 보존하면서 조회에서 제외됨
 }
