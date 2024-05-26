@@ -6,9 +6,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.repository.cdi.Eager;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.management.relation.Role;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 @Getter
 @Entity
@@ -35,8 +38,6 @@ public class Member extends BaseEntity {
 
     @Column(length = 45, unique = true)
     private String email;
-
-
 
     public Long getId() {
         return id;
