@@ -46,14 +46,14 @@ public class NoticeController {
 
     // get board by id
     @ApiOperation(value = "게시글 검색", notes = "해당 게시글 검색")
-    @GetMapping("/boards/{id}")
+    @GetMapping("/notice/{id}")
     public ResponseEntity<Notice> getBoardById(@PathVariable Integer id) {
         return noticeService.getBoardById(id);
     }
 
     // update board
     @ApiOperation(value = "게시글 수정", notes = "해당 게시글 수정")
-    @PutMapping("/boards/{id}")
+    @PutMapping("/notice/{id}")
     public ResponseEntity<Notice> updateBoard(
             @PathVariable Integer id, @RequestBody Notice boardDetails) {
         return noticeService.updateBoard(id, boardDetails);
@@ -61,7 +61,7 @@ public class NoticeController {
 
     // delete board
     @ApiOperation(value = "게시글 삭제", notes = "해당 게시글 삭제")
-    @DeleteMapping("/boards/{id}")
+    @DeleteMapping("/notice/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteBoard(@PathVariable Integer id) {
         return noticeService.deleteBoard(id);
     }
