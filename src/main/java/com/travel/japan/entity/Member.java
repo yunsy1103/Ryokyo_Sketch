@@ -41,6 +41,11 @@ public class Member extends BaseEntity {
     @Column(length = 45)
     private String birth;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 10)
+    private Nationality nationality;
+
+
 
 
     public void encodePassword(PasswordEncoder passwordEncoder){

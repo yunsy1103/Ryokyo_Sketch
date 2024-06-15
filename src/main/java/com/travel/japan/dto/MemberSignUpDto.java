@@ -1,6 +1,7 @@
 package com.travel.japan.dto;
 
 import com.travel.japan.entity.Member;
+import com.travel.japan.entity.Nationality;
 import com.travel.japan.jwt.TokenInfo;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -32,6 +33,9 @@ public class MemberSignUpDto {
     @NotNull(message = "생일을 입력해주세요")
     private String birth;
 
+    @NotNull(message = "국적을 입력해주세요")
+    private Nationality nationality;
+
 
 
     @Builder
@@ -43,6 +47,7 @@ public class MemberSignUpDto {
                 .gender(gender)
                 .birth(birth)
                 .password(password)
+                .nationality(nationality)
                 .build();
     }
 }
