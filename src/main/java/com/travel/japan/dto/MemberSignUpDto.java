@@ -1,6 +1,7 @@
 package com.travel.japan.dto;
 
 import com.travel.japan.entity.Member;
+import com.travel.japan.jwt.TokenInfo;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -18,6 +19,9 @@ public class MemberSignUpDto {
     @NotBlank(message = "비밀번호를 입력해주세요.")
     private String password;
 
+    @NotBlank(message = "비밀번호 확인을 입력해주세요.")
+    private String checkedPassword;
+
     @NotBlank(message = "닉네임을 입력해주세요.")
     @Size(min=2, message = "닉네임이 너무 짧습니다.")
     private String nickname;
@@ -28,9 +32,6 @@ public class MemberSignUpDto {
     @NotNull(message = "생일을 입력해주세요")
     private String birth;
 
-
-    @NotBlank(message = "비밀번호 확인을 입력해주세요.")
-    private String checkedPassword;
 
 
     @Builder

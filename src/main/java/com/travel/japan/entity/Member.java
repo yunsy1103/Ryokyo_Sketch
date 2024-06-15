@@ -10,7 +10,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.management.relation.Role;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
@@ -25,6 +27,9 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 45, unique = true)
+    private String email;
+
     @Column(length = 50)
     private String password;
 
@@ -36,12 +41,6 @@ public class Member extends BaseEntity {
     @Column(length = 45)
     private String birth;
 
-    @Column(length = 45, unique = true)
-    private String email;
-
-    public Long getId() {
-        return id;
-    }
 
 
     public void encodePassword(PasswordEncoder passwordEncoder){

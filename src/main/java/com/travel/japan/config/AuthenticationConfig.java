@@ -1,6 +1,9 @@
 package com.travel.japan.config;
 
+import com.travel.japan.jwt.JwtAuthenticationFilter;
 import com.travel.japan.jwt.JwtFilter;
+import com.travel.japan.jwt.JwtTokenProvider;
+import com.travel.japan.repository.RefreshTokenRepository;
 import com.travel.japan.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +21,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class AuthenticationConfig {
     private final MemberService memberService;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final RefreshTokenRepository refreshTokenRepository;
 
     @Value("${jwt.secret}")
     private String secretKey;
@@ -41,7 +46,8 @@ public class AuthenticationConfig {
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, refreshTokenRepository),
+                        UsernamePasswordAuthenticationFilter.class)
 
                 .build();
     }

@@ -1,8 +1,9 @@
 package com.travel.japan.controller;
 
-import com.travel.japan.dto.LoginDto;
+import com.travel.japan.dto.LoginResponseDto;
 import com.travel.japan.dto.MemberSignInDto;
 import com.travel.japan.dto.MemberSignUpDto;
+import com.travel.japan.jwt.TokenInfo;
 import com.travel.japan.service.MemberService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -30,14 +31,26 @@ public class MemberController {
         }
     }
 
-    @ApiOperation(value = "회원 로그인", notes = "로그인")
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody MemberSignInDto request) {
-        try {
-            String token = memberService.signIn(request);
-            return ResponseEntity.ok().body(token);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: " + e.getMessage());
-        }
-    }
+   // @ApiOperation(value = "회원 로그인", notes = "로그인")
+   // @PostMapping("/login")
+    //public ResponseEntity<String> login(@RequestBody MemberSignInDto request) {
+      //  try {
+        //    String token = memberService.signIn(request);
+          //  return ResponseEntity.ok().body(token);
+       // } catch (Exception e) {
+         //   return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: " + e.getMessage());
+        //}
+    //}
+   @ApiOperation(value = "회원 로그인", notes = "로그인")
+   @PostMapping("/login")
+   public ResponseEntity<?> login(@RequestBody MemberSignInDto request) {
+       try {
+           TokenInfo tokenInfo = memberService.signIn(request);
+           LoginResponseDto response = LoginResponseDto.builder().message("로그인 성공").tokenInfo(tokenInfo).build();
+           return ResponseEntity.ok(response);
+       } catch (Exception e) {
+           return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: " + e.getMessage());
+       }
+   }
+
 }
