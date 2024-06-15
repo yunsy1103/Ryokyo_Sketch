@@ -4,6 +4,7 @@ import com.travel.japan.dto.LoginDto;
 import com.travel.japan.dto.MemberSignInDto;
 import com.travel.japan.dto.MemberSignUpDto;
 import com.travel.japan.service.MemberService;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
     private final MemberService memberService;
 
+    @ApiOperation(value = "회원 등록", notes = "회원 가입")
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.OK)
     public String join(@Validated @RequestBody MemberSignUpDto register) {
@@ -27,6 +29,8 @@ public class MemberController {
             return "회원가입 중 오류가 발생했습니다: " + e.getMessage();
         }
     }
+
+    @ApiOperation(value = "회원 로그인", notes = "로그인")
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody MemberSignInDto request) {
         try {

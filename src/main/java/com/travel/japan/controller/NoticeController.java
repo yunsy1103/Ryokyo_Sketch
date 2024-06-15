@@ -3,6 +3,7 @@ package com.travel.japan.controller;
 import com.travel.japan.dto.ResponseDTO;
 import com.travel.japan.entity.Notice;
 import com.travel.japan.service.NoticeService;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,10 +23,11 @@ public class NoticeController {
     private NoticeService noticeService;
 
     // create board rest api
+    @ApiOperation(value = "게시글 생성", notes = "전체 게시글 생성")
     @PostMapping("/notice")
     public ResponseEntity<?> createNotice(@Validated @RequestBody ResponseDTO responseDTO) {
         Notice notice = new Notice();
-        notice.setTitle(notice.getTitle());
+        notice.setTitle(responseDTO.getTitle());
         notice.setContent(responseDTO.getContent());
         notice.setViewCnt(responseDTO.getViewCnt());
 
@@ -33,6 +35,7 @@ public class NoticeController {
     }
 
     // list all boards
+    @ApiOperation(value = "게시글 조회", notes = "전체 게시글을 조회")
     @GetMapping("/notice")
     public Page<Notice> listAllNotices(
             @RequestParam(defaultValue = "0") int page,
@@ -42,12 +45,14 @@ public class NoticeController {
     }
 
     // get board by id
+    @ApiOperation(value = "게시글 검색", notes = "해당 게시글 검색")
     @GetMapping("/boards/{id}")
     public ResponseEntity<Notice> getBoardById(@PathVariable Integer id) {
         return noticeService.getBoardById(id);
     }
 
     // update board
+    @ApiOperation(value = "게시글 수정", notes = "해당 게시글 수정")
     @PutMapping("/boards/{id}")
     public ResponseEntity<Notice> updateBoard(
             @PathVariable Integer id, @RequestBody Notice boardDetails) {
@@ -55,6 +60,7 @@ public class NoticeController {
     }
 
     // delete board
+    @ApiOperation(value = "게시글 삭제", notes = "해당 게시글 삭제")
     @DeleteMapping("/boards/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteBoard(@PathVariable Integer id) {
         return noticeService.deleteBoard(id);
