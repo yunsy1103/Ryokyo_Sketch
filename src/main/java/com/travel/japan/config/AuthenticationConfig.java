@@ -41,8 +41,14 @@ public class AuthenticationConfig {
                         .requestMatchers("/api/login").permitAll()
                         .requestMatchers("/api/notice/**").permitAll()
                         .requestMatchers("/api/register").permitAll()
+                        .requestMatchers("/swagger-ui.html").permitAll()
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
+                        .requestMatchers("/swagger-resources/**").permitAll()
+                        .requestMatchers("/webjars/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/**").authenticated()
                 )
+
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )

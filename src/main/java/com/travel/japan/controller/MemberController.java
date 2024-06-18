@@ -5,7 +5,8 @@ import com.travel.japan.dto.MemberSignInDto;
 import com.travel.japan.dto.MemberSignUpDto;
 import com.travel.japan.jwt.TokenInfo;
 import com.travel.japan.service.MemberService;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +16,11 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
+@Tag(name = "Member", description = "Member API")
 public class MemberController {
     private final MemberService memberService;
 
-    @ApiOperation(value = "회원 등록", notes = "회원 가입")
+    @Operation(summary = "회원 등록", description = "회원 가입")
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.OK)
     public String join(@Validated @RequestBody MemberSignUpDto register) {
@@ -41,7 +43,7 @@ public class MemberController {
          //   return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: " + e.getMessage());
         //}
     //}
-   @ApiOperation(value = "회원 로그인", notes = "로그인")
+   @Operation(summary = "회원 로그인", description = "로그인")
    @PostMapping("/login")
    public ResponseEntity<?> login(@RequestBody MemberSignInDto request) {
        try {

@@ -3,7 +3,8 @@ package com.travel.japan.controller;
 import com.travel.japan.dto.ResponseDTO;
 import com.travel.japan.entity.Notice;
 import com.travel.japan.service.NoticeService;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,13 +18,14 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
+@Tag(name = "Notice", description = "Notice API")
 public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
 
     // create board rest api
-    @ApiOperation(value = "게시글 생성", notes = "전체 게시글 생성")
+    @Operation(summary = "게시글 생성", description = "전체 게시글 생성")
     @PostMapping("/notice")
     public ResponseEntity<?> createNotice(@Validated @RequestBody ResponseDTO responseDTO) {
         Notice notice = new Notice();
@@ -35,7 +37,7 @@ public class NoticeController {
     }
 
     // list all boards
-    @ApiOperation(value = "게시글 조회", notes = "전체 게시글을 조회")
+    @Operation(summary = "게시글 조회", description = "전체 게시글을 조회")
     @GetMapping("/notice")
     public Page<Notice> listAllNotices(
             @RequestParam(defaultValue = "0") int page,
@@ -45,14 +47,14 @@ public class NoticeController {
     }
 
     // get board by id
-    @ApiOperation(value = "게시글 검색", notes = "해당 게시글 검색")
+    @Operation(summary = "게시글 검색", description = "해당 게시글 검색")
     @GetMapping("/notice/{id}")
     public ResponseEntity<Notice> getBoardById(@PathVariable Integer id) {
         return noticeService.getBoardById(id);
     }
 
     // update board
-    @ApiOperation(value = "게시글 수정", notes = "해당 게시글 수정")
+    @Operation(summary = "게시글 수정", description = "해당 게시글 수정")
     @PutMapping("/notice/{id}")
     public ResponseEntity<Notice> updateBoard(
             @PathVariable Integer id, @RequestBody Notice boardDetails) {
@@ -60,7 +62,7 @@ public class NoticeController {
     }
 
     // delete board
-    @ApiOperation(value = "게시글 삭제", notes = "해당 게시글 삭제")
+    @Operation(summary = "게시글 삭제", description = "해당 게시글 삭제")
     @DeleteMapping("/notice/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteBoard(@PathVariable Integer id) {
         return noticeService.deleteBoard(id);
