@@ -1,7 +1,5 @@
 package com.travel.japan.jwt;
 
-
-
 import com.travel.japan.service.MemberService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -23,44 +21,104 @@ import java.util.List;
 public class JwtFilter extends OncePerRequestFilter {
 
     private final MemberService memberService;
-
-    @Value("${jwt.secret}")
     private final String secretKey;
 
-    // 필터 실제 로직
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
 
-        final String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
-        logger.info("authorization : " + authorization);
+        String path = request.getRequestURI();
+        logger.info("Request URI: " + path);
 
-        //token 안
-        if (authorization == null || !authorization.startsWith("Bearer ")){
-            logger.error("authorization을 잘못 보냈습니다.");
+        try {
+            // 초기 상태 로그
+            logger.info("Before processing - SecurityContext: " + SecurityContextHolder.getContext().getAuthentication());
+
+            if (path.startsWith("/api/gpt")) {
+                handleGptRequest(request, response, filterChain);
+                return;
+            }
+
+            if (path.equals("/api/login") || path.equals("/api/register")) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            final String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
+            logger.info("Authorization: " + authorization);
+
+            if (authorization == null || !authorization.startsWith("Bearer ")) {
+                logger.error("Authorization 헤더가 없거나 잘못된 형식입니다.");
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+                return;
+            }
+
+            String token = authorization.substring(7);
+            logger.info("Token: " + token);
+
+            if (JwtUtil.isExpired(token, secretKey)) {
+                logger.error("토큰이 만료되었습니다.");
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token expired");
+                return;
+            }
+
+            String userName = JwtUtil.getUserName(token, secretKey);
+            logger.info("Username: " + userName);
+
+            UsernamePasswordAuthenticationToken authenticationToken =
+                    new UsernamePasswordAuthenticationToken(userName, null, List.of(new SimpleGrantedAuthority("USER")));
+            authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            logger.info("SecurityContext 설정 완료: " + SecurityContextHolder.getContext().getAuthentication());
+
+            // 필터 체인 진행
             filterChain.doFilter(request, response);
-            return;
+
+            // 필터 체인 후의 상태 로그
+            logger.info("After filter chain - SecurityContext: " + SecurityContextHolder.getContext().getAuthentication());
+
+        } catch (Exception e) {
+            logger.error("Unhandled exception in JwtFilter: " + e.getMessage(), e);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Internal Server Error");
         }
+    }
 
-        //token 꺼내기
-        String token = authorization.split(" ")[1];
-        logger.info("token : " + token);
+    private void handleGptRequest(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws IOException, ServletException {
+        String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
+        logger.info("GPT API 요청의 Authorization 헤더: " + authorizationHeader);
 
-        //token Expired되었는지
-        if(JwtUtil.isExpired(token, secretKey)){
-            logger.error("Token이 만료 되었습니다.");
-            filterChain.doFilter(request, response);
-            return;
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            String apiKey = authorizationHeader.substring(7);
+            if (isValidApiKey(apiKey)) {
+                logger.info("Valid API Key. Proceeding with the request.");
+
+                // 임시 인증 정보 설정
+                UsernamePasswordAuthenticationToken authenticationToken =
+                        new UsernamePasswordAuthenticationToken("apiKeyUser", null, List.of(new SimpleGrantedAuthority("USER")));
+                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                logger.info("SecurityContext 설정 완료: " + SecurityContextHolder.getContext().getAuthentication());
+
+                // 필터 체인 계속 진행
+                filterChain.doFilter(request, response);
+
+                // 필터 체인 후의 상태 로그
+                logger.info("After GPT request processing - SecurityContext: " + SecurityContextHolder.getContext().getAuthentication());
+            } else {
+                logger.error("Invalid API Key.");
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid API Key");
+            }
+        } else {
+            logger.error("Authorization 헤더가 없거나 잘못된 형식입니다.");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid Authorization format");
         }
+    }
 
-        //username token에서 꺼내기
-        String userName = JwtUtil.getUserName(token, secretKey);
-        logger.info("username: " + userName);
-
-        //인증된 사용자를 나타내는 토큰 객체를 생성하고, 권한 정보를 설정
-        UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(userName, null, List.of(new SimpleGrantedAuthority("USER")));
-        authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-        filterChain.doFilter(request, response);
+    private boolean isValidApiKey(String apiKey) {
+        logger.debug("Checking API Key: " + apiKey);
+        String validApiKey = "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";
+        return apiKey.startsWith(validApiKey);
     }
 }

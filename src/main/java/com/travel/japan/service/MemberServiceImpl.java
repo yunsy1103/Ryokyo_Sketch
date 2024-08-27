@@ -13,6 +13,7 @@ import com.travel.japan.repository.RefreshTokenRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,11 +27,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Slf4j
 public class MemberServiceImpl implements MemberService{
+    @Lazy
     private final PasswordEncoder passwordEncoder;
     private final MemberRepository memberRepository;
     private final JwtTokenProvider jwtTokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
- 
+
 
     @Value("${jwt.secret}")
     private String secretKey;
