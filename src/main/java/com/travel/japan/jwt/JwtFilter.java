@@ -28,11 +28,8 @@ public class JwtFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String path = request.getRequestURI();
-        logger.info("Request URI: " + path);
 
         try {
-            // 초기 상태 로그
-            logger.info("Before processing - SecurityContext: " + SecurityContextHolder.getContext().getAuthentication());
 
             if (path.startsWith("/api/gpt")) {
                 handleGptRequest(request, response, filterChain);
@@ -45,7 +42,6 @@ public class JwtFilter extends OncePerRequestFilter {
             }
 
             final String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
-            logger.info("Authorization: " + authorization);
 
             if (authorization == null || !authorization.startsWith("Bearer ")) {
                 logger.error("Authorization 헤더가 없거나 잘못된 형식입니다.");
@@ -70,13 +66,10 @@ public class JwtFilter extends OncePerRequestFilter {
             authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-            logger.info("SecurityContext 설정 완료: " + SecurityContextHolder.getContext().getAuthentication());
 
             // 필터 체인 진행
             filterChain.doFilter(request, response);
 
-            // 필터 체인 후의 상태 로그
-            logger.info("After filter chain - SecurityContext: " + SecurityContextHolder.getContext().getAuthentication());
 
         } catch (Exception e) {
             logger.error("Unhandled exception in JwtFilter: " + e.getMessage(), e);
@@ -87,7 +80,6 @@ public class JwtFilter extends OncePerRequestFilter {
     private void handleGptRequest(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        logger.info("GPT API 요청의 Authorization 헤더: " + authorizationHeader);
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             String apiKey = authorizationHeader.substring(7);
@@ -99,13 +91,10 @@ public class JwtFilter extends OncePerRequestFilter {
                         new UsernamePasswordAuthenticationToken("apiKeyUser", null, List.of(new SimpleGrantedAuthority("USER")));
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-                logger.info("SecurityContext 설정 완료: " + SecurityContextHolder.getContext().getAuthentication());
 
                 // 필터 체인 계속 진행
                 filterChain.doFilter(request, response);
 
-                // 필터 체인 후의 상태 로그
-                logger.info("After GPT request processing - SecurityContext: " + SecurityContextHolder.getContext().getAuthentication());
             } else {
                 logger.error("Invalid API Key.");
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid API Key");
@@ -118,7 +107,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
     private boolean isValidApiKey(String apiKey) {
         logger.debug("Checking API Key: " + apiKey);
-        String validApiKey = "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";
+        String validApiKey = "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";
         return apiKey.startsWith(validApiKey);
     }
 }
