@@ -1,979 +1,137 @@
-2024-08-27T13:47:27.995+09:00  INFO 39499 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 39499 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T13:47:27.999+09:00  INFO 39499 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T13:47:28.406+09:00  INFO 39499 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T13:47:28.436+09:00  INFO 39499 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 JPA repository interfaces.
-2024-08-27T13:47:28.675+09:00  INFO 39499 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T13:47:28.681+09:00  INFO 39499 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T13:47:28.682+09:00  INFO 39499 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T13:47:28.713+09:00  INFO 39499 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T13:47:28.713+09:00  INFO 39499 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 686 ms
-2024-08-27T13:47:28.785+09:00  INFO 39499 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T13:47:28.813+09:00  INFO 39499 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T13:47:28.830+09:00  INFO 39499 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T13:47:28.950+09:00  INFO 39499 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T13:47:28.965+09:00  INFO 39499 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T13:47:29.012+09:00  INFO 39499 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f0c6b3c
-2024-08-27T13:47:29.013+09:00  INFO 39499 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T13:47:29.036+09:00  WARN 39499 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T13:47:29.469+09:00  INFO 39499 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T13:47:29.514+09:00  INFO 39499 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T13:47:29.811+09:00  WARN 39499 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T13:47:30.113+09:00  INFO 39499 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1d86b636, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e0c03bd, org.springframework.security.web.context.SecurityContextHolderFilter@48543f11, org.springframework.security.web.header.HeaderWriterFilter@2df7766b, org.springframework.security.web.authentication.logout.LogoutFilter@d98ce13, com.travel.japan.jwt.JwtAuthenticationFilter@61e4a072, com.travel.japan.jwt.JwtFilter@32f2de5c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e92e9a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c0a8787, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a6df932, org.springframework.security.web.session.SessionManagementFilter@55e3b64d, org.springframework.security.web.access.ExceptionTranslationFilter@413e8246, org.springframework.security.web.access.intercept.AuthorizationFilter@3fe59f84]
-2024-08-27T13:47:30.267+09:00  INFO 39499 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T13:47:30.273+09:00  INFO 39499 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.45 seconds (process running for 2.729)
-2024-08-27T13:47:34.208+09:00  INFO 39499 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T13:47:34.209+09:00  INFO 39499 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T13:47:34.210+09:00  INFO 39499 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:01:19.775+09:00  INFO 64522 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 64522 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:01:19.776+09:00  INFO 64522 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:01:20.141+09:00  INFO 64522 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:01:20.169+09:00  INFO 64522 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:01:20.420+09:00  INFO 64522 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:01:20.425+09:00  INFO 64522 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:01:20.425+09:00  INFO 64522 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:01:20.454+09:00  INFO 64522 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:01:20.454+09:00  INFO 64522 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 660 ms
-2024-08-27T17:01:20.529+09:00  INFO 64522 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:01:20.561+09:00  INFO 64522 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:01:20.577+09:00  INFO 64522 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:01:20.699+09:00  INFO 64522 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:01:20.711+09:00  INFO 64522 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:01:20.753+09:00  INFO 64522 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1640f20f
-2024-08-27T17:01:20.753+09:00  INFO 64522 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:01:20.772+09:00  WARN 64522 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:01:21.181+09:00  INFO 64522 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:01:21.210+09:00  INFO 64522 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:01:21.449+09:00  WARN 64522 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:01:21.761+09:00  INFO 64522 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a3d52a0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a0f1f9d, org.springframework.security.web.context.SecurityContextHolderFilter@4e00723b, org.springframework.security.web.header.HeaderWriterFilter@1fd4850b, org.springframework.security.web.authentication.logout.LogoutFilter@6195ce27, com.travel.japan.jwt.JwtAuthenticationFilter@18356d9e, com.travel.japan.jwt.JwtFilter@5e97da56, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59d7d574, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@94b5fe3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e8f3b76, org.springframework.security.web.session.SessionManagementFilter@3390621a, org.springframework.security.web.access.ExceptionTranslationFilter@55f4ec04, org.springframework.security.web.access.intercept.AuthorizationFilter@1db7a4ae]
-2024-08-27T17:01:21.914+09:00  INFO 64522 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:01:21.920+09:00  INFO 64522 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.321 seconds (process running for 2.77)
-2024-08-27T17:01:25.867+09:00  INFO 64522 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:01:25.868+09:00  INFO 64522 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:01:25.869+09:00  INFO 64522 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:01:25.878+09:00 DEBUG 64522 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:01:25.880+09:00  INFO 64522 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:01:25.881+09:00  INFO 64522 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:01:25.881+09:00  INFO 64522 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:01:25.881+09:00 DEBUG 64522 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:01:25.881+09:00  INFO 64522 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:01:25.882+09:00  INFO 64522 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:01:25.883+09:00 DEBUG 64522 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:01:26.299+09:00  INFO 64522 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:01:30.981+09:00  INFO 64522 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:01:30.981+09:00  INFO 64522 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:01:30.982+09:00  INFO 64522 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:02:58.450+09:00  INFO 65350 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 65350 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:02:58.451+09:00  INFO 65350 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:02:58.791+09:00  INFO 65350 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:02:58.817+09:00  INFO 65350 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:02:59.046+09:00  INFO 65350 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:02:59.051+09:00  INFO 65350 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:02:59.051+09:00  INFO 65350 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:02:59.079+09:00  INFO 65350 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:02:59.079+09:00  INFO 65350 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 612 ms
-2024-08-27T17:02:59.141+09:00  INFO 65350 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:02:59.162+09:00  INFO 65350 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:02:59.178+09:00  INFO 65350 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:02:59.279+09:00  INFO 65350 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:02:59.290+09:00  INFO 65350 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:02:59.332+09:00  INFO 65350 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@39851c5
-2024-08-27T17:02:59.333+09:00  INFO 65350 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:02:59.350+09:00  WARN 65350 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:02:59.723+09:00  INFO 65350 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:02:59.747+09:00  INFO 65350 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:02:59.991+09:00  WARN 65350 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:03:00.296+09:00  INFO 65350 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4830c979, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d98ce13, org.springframework.security.web.context.SecurityContextHolderFilter@1644cc2d, org.springframework.security.web.header.HeaderWriterFilter@69d9d322, org.springframework.security.web.authentication.logout.LogoutFilter@7a0f1f9d, com.travel.japan.jwt.JwtAuthenticationFilter@1e86b2d1, com.travel.japan.jwt.JwtFilter@65029fc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@162a5c4c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f0bf0ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4865434e, org.springframework.security.web.session.SessionManagementFilter@4c7b4a31, org.springframework.security.web.access.ExceptionTranslationFilter@5a0b550a, org.springframework.security.web.access.intercept.AuthorizationFilter@4db10b9f]
-2024-08-27T17:03:00.437+09:00  INFO 65350 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:03:00.442+09:00  INFO 65350 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.152 seconds (process running for 2.361)
-2024-08-27T17:03:01.475+09:00  INFO 65350 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:03:01.475+09:00  INFO 65350 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:03:01.476+09:00  INFO 65350 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:03:01.484+09:00 DEBUG 65350 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:03:01.486+09:00  INFO 65350 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:03:01.486+09:00  INFO 65350 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:03:01.486+09:00  INFO 65350 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:03:01.486+09:00 DEBUG 65350 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:03:01.486+09:00  INFO 65350 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:03:01.487+09:00  INFO 65350 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:03:01.488+09:00 DEBUG 65350 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:03:01.919+09:00 ERROR 65350 --- [http-nio-8080-exec-2] com.travel.japan.service.GPTService      : Error occurred while calling OpenAI API: 
-
-org.springframework.web.client.HttpClientErrorException$Unauthorized: 401 Unauthorized: [no body]
-	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:106) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:183) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:137) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:942) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:891) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:538) ~[spring-web-6.1.5.jar:6.1.5]
-	at com.travel.japan.service.GPTService.getResponse(GPTService.java:46) ~[main/:na]
-	at com.travel.japan.service.GPTService.askQuestion(GPTService.java:64) ~[main/:na]
-	at com.travel.japan.controller.GPTController.sendQuestion(GPTController.java:37) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtFilter.handleGptRequest(JwtFilter.java:105) ~[main/:na]
-	at com.travel.japan.jwt.JwtFilter.doFilterInternal(JwtFilter.java:38) ~[main/:na]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtAuthenticationFilter.doFilter(JwtAuthenticationFilter.java:73) ~[main/:na]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2024-08-27T17:03:01.931+09:00  INFO 65350 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:03:03.201+09:00 DEBUG 65350 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:03:03.202+09:00  INFO 65350 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:03:03.202+09:00  INFO 65350 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:03:03.202+09:00  INFO 65350 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:03:03.202+09:00 DEBUG 65350 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:03:03.202+09:00  INFO 65350 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:03:03.202+09:00  INFO 65350 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:03:03.203+09:00 DEBUG 65350 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:03:03.641+09:00 ERROR 65350 --- [http-nio-8080-exec-4] com.travel.japan.service.GPTService      : Error occurred while calling OpenAI API: 
-
-org.springframework.web.client.HttpClientErrorException$Unauthorized: 401 Unauthorized: [no body]
-	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:106) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:183) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:137) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:942) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:891) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:538) ~[spring-web-6.1.5.jar:6.1.5]
-	at com.travel.japan.service.GPTService.getResponse(GPTService.java:46) ~[main/:na]
-	at com.travel.japan.service.GPTService.askQuestion(GPTService.java:64) ~[main/:na]
-	at com.travel.japan.controller.GPTController.sendQuestion(GPTController.java:37) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtFilter.handleGptRequest(JwtFilter.java:105) ~[main/:na]
-	at com.travel.japan.jwt.JwtFilter.doFilterInternal(JwtFilter.java:38) ~[main/:na]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtAuthenticationFilter.doFilter(JwtAuthenticationFilter.java:73) ~[main/:na]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2024-08-27T17:03:03.644+09:00  INFO 65350 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:03:12.151+09:00  INFO 65350 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:03:12.151+09:00  INFO 65350 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:03:12.152+09:00  INFO 65350 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:04:21.844+09:00  INFO 65935 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 65935 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:04:21.844+09:00  INFO 65935 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:04:22.216+09:00  INFO 65935 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:04:22.245+09:00  INFO 65935 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:04:22.473+09:00  INFO 65935 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:04:22.478+09:00  INFO 65935 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:04:22.478+09:00  INFO 65935 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:04:22.506+09:00  INFO 65935 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:04:22.506+09:00  INFO 65935 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 644 ms
-2024-08-27T17:04:22.568+09:00  INFO 65935 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:04:22.591+09:00  INFO 65935 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:04:22.605+09:00  INFO 65935 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:04:22.708+09:00  INFO 65935 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:04:22.723+09:00  INFO 65935 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:04:22.765+09:00  INFO 65935 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27438750
-2024-08-27T17:04:22.766+09:00  INFO 65935 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:04:22.785+09:00  WARN 65935 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:04:23.165+09:00  INFO 65935 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:04:23.191+09:00  INFO 65935 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:04:23.421+09:00  WARN 65935 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:04:23.806+09:00  INFO 65935 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@443b9ebb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4830c979, org.springframework.security.web.context.SecurityContextHolderFilter@235d46b2, org.springframework.security.web.header.HeaderWriterFilter@3390621a, org.springframework.security.web.authentication.logout.LogoutFilter@5a3d52a0, com.travel.japan.jwt.JwtAuthenticationFilter@d98ce13, com.travel.japan.jwt.JwtFilter@1e86b2d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f83616, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@162a5c4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65029fc, org.springframework.security.web.session.SessionManagementFilter@413e8246, org.springframework.security.web.access.ExceptionTranslationFilter@44ec6637, org.springframework.security.web.access.intercept.AuthorizationFilter@3507200d]
-2024-08-27T17:04:23.945+09:00  INFO 65935 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:04:23.951+09:00  INFO 65935 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.271 seconds (process running for 2.504)
-2024-08-27T17:04:24.881+09:00  INFO 65935 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:04:24.881+09:00  INFO 65935 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:04:24.882+09:00  INFO 65935 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:04:24.889+09:00 DEBUG 65935 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:04:24.891+09:00  INFO 65935 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:04:24.891+09:00  INFO 65935 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:04:24.891+09:00  INFO 65935 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:04:24.892+09:00 DEBUG 65935 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:04:24.892+09:00  INFO 65935 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:04:24.893+09:00  INFO 65935 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:04:24.894+09:00 DEBUG 65935 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:04:25.444+09:00 ERROR 65935 --- [http-nio-8080-exec-1] com.travel.japan.service.GPTService      : Error occurred while calling OpenAI API: 
-
-org.springframework.web.client.HttpClientErrorException$TooManyRequests: 429 Too Many Requests: "{<EOL>    "error": {<EOL>        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",<EOL>        "type": "insufficient_quota",<EOL>        "param": null,<EOL>        "code": "insufficient_quota"<EOL>    }<EOL>}<EOL>"
-	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:130) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:183) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:137) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:942) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:891) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:538) ~[spring-web-6.1.5.jar:6.1.5]
-	at com.travel.japan.service.GPTService.getResponse(GPTService.java:46) ~[main/:na]
-	at com.travel.japan.service.GPTService.askQuestion(GPTService.java:64) ~[main/:na]
-	at com.travel.japan.controller.GPTController.sendQuestion(GPTController.java:37) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtFilter.handleGptRequest(JwtFilter.java:105) ~[main/:na]
-	at com.travel.japan.jwt.JwtFilter.doFilterInternal(JwtFilter.java:38) ~[main/:na]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtAuthenticationFilter.doFilter(JwtAuthenticationFilter.java:73) ~[main/:na]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2024-08-27T17:04:25.458+09:00  INFO 65935 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:04:34.138+09:00  INFO 65935 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:04:34.139+09:00  INFO 65935 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:04:34.140+09:00  INFO 65935 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:07:18.652+09:00  INFO 67344 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 67344 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:07:18.653+09:00  INFO 67344 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:07:18.983+09:00  INFO 67344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:07:19.011+09:00  INFO 67344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:07:19.227+09:00  INFO 67344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:07:19.232+09:00  INFO 67344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:07:19.232+09:00  INFO 67344 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:07:19.259+09:00  INFO 67344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:07:19.260+09:00  INFO 67344 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 589 ms
-2024-08-27T17:07:19.322+09:00  INFO 67344 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:07:19.341+09:00  INFO 67344 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:07:19.353+09:00  INFO 67344 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:07:19.460+09:00  INFO 67344 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:07:19.472+09:00  INFO 67344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:07:19.513+09:00  INFO 67344 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27438750
-2024-08-27T17:07:19.514+09:00  INFO 67344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:07:19.530+09:00  WARN 67344 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:07:19.912+09:00  INFO 67344 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:07:19.939+09:00  INFO 67344 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:07:20.164+09:00  WARN 67344 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:07:20.485+09:00  INFO 67344 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@443b9ebb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4830c979, org.springframework.security.web.context.SecurityContextHolderFilter@235d46b2, org.springframework.security.web.header.HeaderWriterFilter@3390621a, org.springframework.security.web.authentication.logout.LogoutFilter@5a3d52a0, com.travel.japan.jwt.JwtAuthenticationFilter@d98ce13, com.travel.japan.jwt.JwtFilter@1e86b2d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f83616, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@162a5c4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65029fc, org.springframework.security.web.session.SessionManagementFilter@413e8246, org.springframework.security.web.access.ExceptionTranslationFilter@44ec6637, org.springframework.security.web.access.intercept.AuthorizationFilter@3507200d]
-2024-08-27T17:07:20.630+09:00  INFO 67344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:07:20.636+09:00  INFO 67344 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.148 seconds (process running for 2.356)
-2024-08-27T17:07:21.209+09:00  INFO 67344 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:07:21.209+09:00  INFO 67344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:07:21.211+09:00  INFO 67344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:07:21.221+09:00 DEBUG 67344 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:07:21.223+09:00  INFO 67344 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:07:21.223+09:00  INFO 67344 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:07:21.224+09:00  INFO 67344 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:07:21.224+09:00 DEBUG 67344 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:07:21.224+09:00  INFO 67344 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:07:21.225+09:00  INFO 67344 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:07:21.226+09:00 DEBUG 67344 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:07:21.631+09:00 ERROR 67344 --- [http-nio-8080-exec-1] com.travel.japan.service.GPTService      : Error occurred while calling OpenAI API: 
-
-org.springframework.web.client.HttpClientErrorException$TooManyRequests: 429 Too Many Requests: "{<EOL>    "error": {<EOL>        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",<EOL>        "type": "insufficient_quota",<EOL>        "param": null,<EOL>        "code": "insufficient_quota"<EOL>    }<EOL>}<EOL>"
-	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:130) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:183) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:137) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:942) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:891) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:538) ~[spring-web-6.1.5.jar:6.1.5]
-	at com.travel.japan.service.GPTService.getResponse(GPTService.java:46) ~[main/:na]
-	at com.travel.japan.service.GPTService.askQuestion(GPTService.java:64) ~[main/:na]
-	at com.travel.japan.controller.GPTController.sendQuestion(GPTController.java:37) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtFilter.handleGptRequest(JwtFilter.java:105) ~[main/:na]
-	at com.travel.japan.jwt.JwtFilter.doFilterInternal(JwtFilter.java:38) ~[main/:na]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtAuthenticationFilter.doFilter(JwtAuthenticationFilter.java:73) ~[main/:na]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2024-08-27T17:07:21.643+09:00  INFO 67344 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:07:25.611+09:00  INFO 67344 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:07:25.612+09:00  INFO 67344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:07:25.613+09:00  INFO 67344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:09:59.109+09:00  INFO 68702 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 68702 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:09:59.110+09:00  INFO 68702 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:09:59.458+09:00  INFO 68702 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:09:59.497+09:00  INFO 68702 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:09:59.750+09:00  INFO 68702 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:09:59.755+09:00  INFO 68702 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:09:59.755+09:00  INFO 68702 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:09:59.785+09:00  INFO 68702 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:09:59.785+09:00  INFO 68702 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 658 ms
-2024-08-27T17:09:59.854+09:00  INFO 68702 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:09:59.879+09:00  INFO 68702 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:09:59.892+09:00  INFO 68702 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:10:00.003+09:00  INFO 68702 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:10:00.017+09:00  INFO 68702 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:10:00.059+09:00  INFO 68702 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1cc708a7
-2024-08-27T17:10:00.060+09:00  INFO 68702 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:10:00.082+09:00  WARN 68702 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:10:00.468+09:00  INFO 68702 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:10:00.509+09:00  INFO 68702 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:10:00.761+09:00  WARN 68702 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:10:01.070+09:00  INFO 68702 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@28721794, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3507200d, org.springframework.security.web.context.SecurityContextHolderFilter@732fa176, org.springframework.security.web.header.HeaderWriterFilter@7842260f, org.springframework.security.web.authentication.logout.LogoutFilter@2fb24ad8, com.travel.japan.jwt.JwtAuthenticationFilter@4db10b9f, com.travel.japan.jwt.JwtFilter@7c4de811, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c7b4a31, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2df7766b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@443b9ebb, org.springframework.security.web.session.SessionManagementFilter@3811464b, org.springframework.security.web.access.ExceptionTranslationFilter@7a085d02, org.springframework.security.web.access.intercept.AuthorizationFilter@6cfe32cd]
-2024-08-27T17:10:01.212+09:00  INFO 68702 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:10:01.218+09:00  INFO 68702 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.27 seconds (process running for 2.489)
-2024-08-27T17:10:05.919+09:00  INFO 68702 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:10:05.920+09:00  INFO 68702 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:10:05.921+09:00  INFO 68702 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:10:05.930+09:00 DEBUG 68702 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:10:05.933+09:00  INFO 68702 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:10:05.933+09:00  INFO 68702 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:10:05.933+09:00  INFO 68702 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:10:05.933+09:00 DEBUG 68702 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:10:05.933+09:00  INFO 68702 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:10:05.934+09:00  INFO 68702 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:10:05.935+09:00 DEBUG 68702 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:10:07.406+09:00 ERROR 68702 --- [http-nio-8080-exec-1] com.travel.japan.service.GPTService      : Error occurred while calling OpenAI API: 
-
-org.springframework.web.client.HttpClientErrorException$TooManyRequests: 429 Too Many Requests: "{<EOL>    "error": {<EOL>        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",<EOL>        "type": "insufficient_quota",<EOL>        "param": null,<EOL>        "code": "insufficient_quota"<EOL>    }<EOL>}<EOL>"
-	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:130) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:183) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:137) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:942) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:891) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:538) ~[spring-web-6.1.5.jar:6.1.5]
-	at com.travel.japan.service.GPTService.getResponse(GPTService.java:46) ~[main/:na]
-	at com.travel.japan.service.GPTService.askQuestion(GPTService.java:72) ~[main/:na]
-	at com.travel.japan.controller.GPTController.sendQuestion(GPTController.java:37) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtFilter.handleGptRequest(JwtFilter.java:105) ~[main/:na]
-	at com.travel.japan.jwt.JwtFilter.doFilterInternal(JwtFilter.java:38) ~[main/:na]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at com.travel.japan.jwt.JwtAuthenticationFilter.doFilter(JwtAuthenticationFilter.java:73) ~[main/:na]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2024-08-27T17:10:07.419+09:00  INFO 68702 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:10:15.719+09:00  INFO 68702 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:10:15.720+09:00  INFO 68702 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:10:15.723+09:00  INFO 68702 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:11:36.260+09:00  INFO 69466 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 69466 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:11:36.261+09:00  INFO 69466 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:11:36.604+09:00  INFO 69466 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:11:36.633+09:00  INFO 69466 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:11:36.878+09:00  INFO 69466 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:11:36.883+09:00  INFO 69466 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:11:36.883+09:00  INFO 69466 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:11:36.913+09:00  INFO 69466 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:11:36.913+09:00  INFO 69466 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 634 ms
-2024-08-27T17:11:36.986+09:00  INFO 69466 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:11:37.011+09:00  INFO 69466 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:11:37.024+09:00  INFO 69466 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:11:37.132+09:00  INFO 69466 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:11:37.144+09:00  INFO 69466 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:11:37.186+09:00  INFO 69466 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@a1e912f
-2024-08-27T17:11:37.187+09:00  INFO 69466 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:11:37.204+09:00  WARN 69466 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:11:37.612+09:00  INFO 69466 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:11:37.639+09:00  INFO 69466 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:11:37.872+09:00  WARN 69466 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:11:38.216+09:00  INFO 69466 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c0a8787, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65cf8da0, org.springframework.security.web.context.SecurityContextHolderFilter@1fd4850b, org.springframework.security.web.header.HeaderWriterFilter@1bb3e150, org.springframework.security.web.authentication.logout.LogoutFilter@6f9e6a85, com.travel.japan.jwt.JwtAuthenticationFilter@823f978, com.travel.japan.jwt.JwtFilter@6195ce27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f5f892c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b2e841, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@397b5b2d, org.springframework.security.web.session.SessionManagementFilter@3df7e309, org.springframework.security.web.access.ExceptionTranslationFilter@18c95fbb, org.springframework.security.web.access.intercept.AuthorizationFilter@48543f11]
-2024-08-27T17:11:38.355+09:00  INFO 69466 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:11:38.361+09:00  INFO 69466 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.264 seconds (process running for 2.625)
-2024-08-27T17:11:39.636+09:00  INFO 69466 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:11:39.637+09:00  INFO 69466 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:11:39.638+09:00  INFO 69466 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:11:39.648+09:00 DEBUG 69466 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:11:39.651+09:00  INFO 69466 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:11:39.651+09:00  INFO 69466 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:11:39.651+09:00  INFO 69466 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:11:39.651+09:00 DEBUG 69466 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:11:39.651+09:00  INFO 69466 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:11:39.652+09:00  INFO 69466 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:11:39.654+09:00 DEBUG 69466 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:11:41.369+09:00  INFO 69466 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:11:48.911+09:00  INFO 69466 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:11:48.912+09:00  INFO 69466 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:11:48.913+09:00  INFO 69466 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:39:21.001+09:00  INFO 82529 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 82529 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:39:21.002+09:00  INFO 82529 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:39:21.445+09:00  INFO 82529 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:39:21.479+09:00  INFO 82529 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:39:21.733+09:00  INFO 82529 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:39:21.744+09:00  INFO 82529 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:39:21.744+09:00  INFO 82529 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:39:21.774+09:00  INFO 82529 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:39:21.774+09:00  INFO 82529 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 753 ms
-2024-08-27T17:39:21.847+09:00  INFO 82529 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:39:21.875+09:00  INFO 82529 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:39:21.893+09:00  INFO 82529 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:39:22.021+09:00  INFO 82529 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:39:22.034+09:00  INFO 82529 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:39:22.086+09:00  INFO 82529 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1640f20f
-2024-08-27T17:39:22.087+09:00  INFO 82529 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:39:22.108+09:00  WARN 82529 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:39:22.524+09:00  INFO 82529 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:39:22.566+09:00  INFO 82529 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:39:22.834+09:00  WARN 82529 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:39:23.208+09:00  INFO 82529 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a3d52a0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a0f1f9d, org.springframework.security.web.context.SecurityContextHolderFilter@4e00723b, org.springframework.security.web.header.HeaderWriterFilter@1fd4850b, org.springframework.security.web.authentication.logout.LogoutFilter@6195ce27, com.travel.japan.jwt.JwtAuthenticationFilter@18356d9e, com.travel.japan.jwt.JwtFilter@5e97da56, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59d7d574, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@94b5fe3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e8f3b76, org.springframework.security.web.session.SessionManagementFilter@3390621a, org.springframework.security.web.access.ExceptionTranslationFilter@55f4ec04, org.springframework.security.web.access.intercept.AuthorizationFilter@1db7a4ae]
-2024-08-27T17:39:23.369+09:00  INFO 82529 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:39:23.375+09:00  INFO 82529 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.549 seconds (process running for 2.824)
-2024-08-27T17:39:24.201+09:00  INFO 82529 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:39:24.201+09:00  INFO 82529 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:39:24.202+09:00  INFO 82529 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:39:24.210+09:00 DEBUG 82529 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:39:24.212+09:00  INFO 82529 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:39:24.213+09:00  INFO 82529 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:39:24.213+09:00  INFO 82529 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:39:24.213+09:00 DEBUG 82529 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:39:24.213+09:00  INFO 82529 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:39:24.213+09:00  INFO 82529 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:39:24.215+09:00 DEBUG 82529 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:39:25.687+09:00  INFO 82529 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:39:30.013+09:00  INFO 82529 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:39:30.014+09:00  INFO 82529 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:39:30.014+09:00  INFO 82529 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:43:33.136+09:00  INFO 84607 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 84607 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:43:33.137+09:00  INFO 84607 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:43:33.509+09:00  INFO 84607 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:43:33.538+09:00  INFO 84607 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:43:33.788+09:00  INFO 84607 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:43:33.794+09:00  INFO 84607 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:43:33.794+09:00  INFO 84607 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:43:33.828+09:00  INFO 84607 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:43:33.828+09:00  INFO 84607 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 673 ms
-2024-08-27T17:43:33.904+09:00  INFO 84607 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:43:33.934+09:00  INFO 84607 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:43:33.949+09:00  INFO 84607 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:43:34.068+09:00  INFO 84607 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:43:34.080+09:00  INFO 84607 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:43:34.124+09:00  INFO 84607 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@68b3248a
-2024-08-27T17:43:34.124+09:00  INFO 84607 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:43:34.146+09:00  WARN 84607 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:43:34.572+09:00  INFO 84607 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:43:34.602+09:00  INFO 84607 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:43:34.831+09:00  WARN 84607 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:43:35.138+09:00  INFO 84607 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@823f978, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6195ce27, org.springframework.security.web.context.SecurityContextHolderFilter@6f5f892c, org.springframework.security.web.header.HeaderWriterFilter@3ac76ad9, org.springframework.security.web.authentication.logout.LogoutFilter@6a1b4854, com.travel.japan.jwt.JwtAuthenticationFilter@397b5b2d, com.travel.japan.jwt.JwtFilter@2040732f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a75d9a1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@698daff6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@373fb666, org.springframework.security.web.session.SessionManagementFilter@f3c27e9, org.springframework.security.web.access.ExceptionTranslationFilter@1bb3e150, org.springframework.security.web.access.intercept.AuthorizationFilter@7e92e9a2]
-2024-08-27T17:43:35.288+09:00  INFO 84607 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:43:35.294+09:00  INFO 84607 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.328 seconds (process running for 2.609)
-2024-08-27T17:43:35.388+09:00  INFO 84607 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:43:35.388+09:00  INFO 84607 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:43:35.388+09:00  INFO 84607 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-08-27T17:43:35.395+09:00 DEBUG 84607 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:43:35.396+09:00  INFO 84607 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:43:35.396+09:00  INFO 84607 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:43:35.396+09:00  INFO 84607 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:43:35.397+09:00 DEBUG 84607 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:43:35.397+09:00 ERROR 84607 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Invalid API Key.
-2024-08-27T17:43:35.400+09:00 DEBUG 84607 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /error
-2024-08-27T17:43:35.401+09:00 DEBUG 84607 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2024-08-27T17:43:35.402+09:00 DEBUG 84607 --- [http-nio-8080-exec-1] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
-2024-08-27T17:43:36.284+09:00 DEBUG 84607 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:43:36.285+09:00  INFO 84607 --- [http-nio-8080-exec-3] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:43:36.285+09:00  INFO 84607 --- [http-nio-8080-exec-3] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:43:36.285+09:00  INFO 84607 --- [http-nio-8080-exec-3] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:43:36.285+09:00 DEBUG 84607 --- [http-nio-8080-exec-3] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:43:36.285+09:00 ERROR 84607 --- [http-nio-8080-exec-3] com.travel.japan.jwt.JwtFilter           : Invalid API Key.
-2024-08-27T17:43:36.286+09:00 DEBUG 84607 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /error
-2024-08-27T17:43:36.287+09:00 DEBUG 84607 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2024-08-27T17:43:36.287+09:00 DEBUG 84607 --- [http-nio-8080-exec-3] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
-2024-08-27T17:43:37.290+09:00 DEBUG 84607 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:43:37.290+09:00  INFO 84607 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:43:37.290+09:00  INFO 84607 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:43:37.291+09:00  INFO 84607 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:43:37.291+09:00 DEBUG 84607 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:43:37.291+09:00 ERROR 84607 --- [http-nio-8080-exec-4] com.travel.japan.jwt.JwtFilter           : Invalid API Key.
-2024-08-27T17:43:37.292+09:00 DEBUG 84607 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /error
-2024-08-27T17:43:37.293+09:00 DEBUG 84607 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2024-08-27T17:43:37.294+09:00 DEBUG 84607 --- [http-nio-8080-exec-4] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
-2024-08-27T17:43:38.154+09:00 DEBUG 84607 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:43:38.155+09:00  INFO 84607 --- [http-nio-8080-exec-5] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:43:38.155+09:00  INFO 84607 --- [http-nio-8080-exec-5] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:43:38.155+09:00  INFO 84607 --- [http-nio-8080-exec-5] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:43:38.155+09:00 DEBUG 84607 --- [http-nio-8080-exec-5] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:43:38.155+09:00 ERROR 84607 --- [http-nio-8080-exec-5] com.travel.japan.jwt.JwtFilter           : Invalid API Key.
-2024-08-27T17:43:38.156+09:00 DEBUG 84607 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /error
-2024-08-27T17:43:38.156+09:00 DEBUG 84607 --- [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2024-08-27T17:43:38.156+09:00 DEBUG 84607 --- [http-nio-8080-exec-5] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
-2024-08-27T17:43:42.859+09:00  INFO 84607 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:43:42.859+09:00  INFO 84607 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:43:42.860+09:00  INFO 84607 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-08-27T17:44:11.313+09:00  INFO 84867 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 84867 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
-2024-08-27T17:44:11.314+09:00  INFO 84867 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
-2024-08-27T17:44:11.668+09:00  INFO 84867 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-27T17:44:11.694+09:00  INFO 84867 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 3 JPA repository interfaces.
-2024-08-27T17:44:11.919+09:00  INFO 84867 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-08-27T17:44:11.924+09:00  INFO 84867 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-27T17:44:11.925+09:00  INFO 84867 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-08-27T17:44:11.954+09:00  INFO 84867 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-27T17:44:11.955+09:00  INFO 84867 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 625 ms
-2024-08-27T17:44:12.016+09:00  INFO 84867 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-27T17:44:12.036+09:00  INFO 84867 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-08-27T17:44:12.048+09:00  INFO 84867 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-27T17:44:12.150+09:00  INFO 84867 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-27T17:44:12.162+09:00  INFO 84867 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-27T17:44:12.204+09:00  INFO 84867 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27438750
-2024-08-27T17:44:12.204+09:00  INFO 84867 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-27T17:44:12.224+09:00  WARN 84867 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-27T17:44:12.619+09:00  INFO 84867 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-27T17:44:12.644+09:00  INFO 84867 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:44:12.871+09:00  WARN 84867 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-27T17:44:13.165+09:00  INFO 84867 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@443b9ebb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4830c979, org.springframework.security.web.context.SecurityContextHolderFilter@235d46b2, org.springframework.security.web.header.HeaderWriterFilter@3390621a, org.springframework.security.web.authentication.logout.LogoutFilter@5a3d52a0, com.travel.japan.jwt.JwtAuthenticationFilter@d98ce13, com.travel.japan.jwt.JwtFilter@1e86b2d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f83616, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@162a5c4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65029fc, org.springframework.security.web.session.SessionManagementFilter@413e8246, org.springframework.security.web.access.ExceptionTranslationFilter@44ec6637, org.springframework.security.web.access.intercept.AuthorizationFilter@3507200d]
-2024-08-27T17:44:13.321+09:00  INFO 84867 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-08-27T17:44:13.327+09:00  INFO 84867 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.177 seconds (process running for 2.382)
-2024-08-27T17:44:13.366+09:00  INFO 84867 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-27T17:44:13.366+09:00  INFO 84867 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-08-27T17:44:13.367+09:00  INFO 84867 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-08-27T17:44:13.374+09:00 DEBUG 84867 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
-2024-08-27T17:44:13.376+09:00  INFO 84867 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
-2024-08-27T17:44:13.376+09:00  INFO 84867 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
-2024-08-27T17:44:13.376+09:00  INFO 84867 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
-2024-08-27T17:44:13.376+09:00 DEBUG 84867 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
-2024-08-27T17:44:13.376+09:00  INFO 84867 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
-2024-08-27T17:44:13.377+09:00  INFO 84867 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:44:13.378+09:00 DEBUG 84867 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
-2024-08-27T17:44:15.039+09:00  INFO 84867 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
-2024-08-27T17:44:17.172+09:00  INFO 84867 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-27T17:44:17.173+09:00  INFO 84867 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-27T17:44:17.174+09:00  INFO 84867 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-08-28T12:22:25.584+09:00  INFO 39466 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 39466 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
+2024-08-28T12:22:25.587+09:00  INFO 39466 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
+2024-08-28T12:22:25.971+09:00  INFO 39466 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-28T12:22:26.000+09:00  INFO 39466 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 3 JPA repository interfaces.
+2024-08-28T12:22:26.257+09:00  INFO 39466 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-28T12:22:26.264+09:00  INFO 39466 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-28T12:22:26.264+09:00  INFO 39466 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-28T12:22:26.294+09:00  INFO 39466 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-28T12:22:26.294+09:00  INFO 39466 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 688 ms
+2024-08-28T12:22:26.367+09:00  INFO 39466 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-28T12:22:26.396+09:00  INFO 39466 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-08-28T12:22:26.416+09:00  INFO 39466 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-08-28T12:22:26.535+09:00  INFO 39466 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-28T12:22:26.547+09:00  INFO 39466 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-08-28T12:22:26.604+09:00  INFO 39466 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f0c6b3c
+2024-08-28T12:22:26.605+09:00  INFO 39466 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-08-28T12:22:26.626+09:00  WARN 39466 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-28T12:22:27.066+09:00  INFO 39466 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-28T12:22:27.099+09:00  INFO 39466 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:22:27.344+09:00  WARN 39466 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-28T12:22:27.686+09:00  INFO 39466 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1d86b636, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e0c03bd, org.springframework.security.web.context.SecurityContextHolderFilter@48543f11, org.springframework.security.web.header.HeaderWriterFilter@2df7766b, org.springframework.security.web.authentication.logout.LogoutFilter@d98ce13, com.travel.japan.jwt.JwtAuthenticationFilter@61e4a072, com.travel.japan.jwt.JwtFilter@32f2de5c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e92e9a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c0a8787, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a6df932, org.springframework.security.web.session.SessionManagementFilter@55e3b64d, org.springframework.security.web.access.ExceptionTranslationFilter@413e8246, org.springframework.security.web.access.intercept.AuthorizationFilter@3fe59f84]
+2024-08-28T12:22:27.836+09:00  INFO 39466 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-28T12:22:27.842+09:00  INFO 39466 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.439 seconds (process running for 2.766)
+2024-08-28T12:22:30.697+09:00  INFO 39466 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-28T12:22:30.698+09:00  INFO 39466 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-28T12:22:30.699+09:00  INFO 39466 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-28T12:22:30.709+09:00 DEBUG 39466 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
+2024-08-28T12:22:30.712+09:00  INFO 39466 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
+2024-08-28T12:22:30.712+09:00  INFO 39466 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
+2024-08-28T12:22:30.712+09:00  INFO 39466 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
+2024-08-28T12:22:30.712+09:00 DEBUG 39466 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
+2024-08-28T12:22:30.712+09:00  INFO 39466 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
+2024-08-28T12:22:30.713+09:00  INFO 39466 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
+2024-08-28T12:22:30.715+09:00 DEBUG 39466 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
+2024-08-28T12:22:32.181+09:00  INFO 39466 --- [http-nio-8080-exec-2] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
+2024-08-28T12:22:36.377+09:00  INFO 39466 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:22:36.378+09:00  INFO 39466 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-08-28T12:22:36.379+09:00  INFO 39466 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-08-28T12:29:23.618+09:00  INFO 42854 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 42854 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
+2024-08-28T12:29:23.620+09:00  INFO 42854 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
+2024-08-28T12:29:23.974+09:00  INFO 42854 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-28T12:29:24.004+09:00  INFO 42854 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 JPA repository interfaces.
+2024-08-28T12:29:24.249+09:00  INFO 42854 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-28T12:29:24.282+09:00  INFO 42854 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 642 ms
+2024-08-28T12:29:24.346+09:00  INFO 42854 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-28T12:29:24.370+09:00  INFO 42854 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-08-28T12:29:24.384+09:00  INFO 42854 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-08-28T12:29:24.541+09:00  INFO 42854 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-28T12:29:24.554+09:00  INFO 42854 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-08-28T12:29:24.603+09:00  INFO 42854 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27502e5c
+2024-08-28T12:29:24.604+09:00  INFO 42854 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-08-28T12:29:24.624+09:00  WARN 42854 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-28T12:29:25.029+09:00  INFO 42854 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-28T12:29:25.057+09:00  INFO 42854 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:29:25.290+09:00  WARN 42854 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-28T12:29:25.609+09:00  INFO 42854 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3bf306d3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5101b9, org.springframework.security.web.context.SecurityContextHolderFilter@7894a250, org.springframework.security.web.header.HeaderWriterFilter@7641c4e7, org.springframework.security.web.authentication.logout.LogoutFilter@38eafdab, com.travel.japan.jwt.JwtAuthenticationFilter@40273969, com.travel.japan.jwt.JwtFilter@5ec25b61, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38affd02, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72e9f0f7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7da40bf4, org.springframework.security.web.session.SessionManagementFilter@397b5b2d, org.springframework.security.web.access.ExceptionTranslationFilter@6a1b4854, org.springframework.security.web.access.intercept.AuthorizationFilter@1415f18d]
+2024-08-28T12:29:25.766+09:00  INFO 42854 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-28T12:29:25.773+09:00  INFO 42854 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.324 seconds (process running for 2.68)
+2024-08-28T12:29:25.783+09:00  INFO 42854 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:29:25.784+09:00  INFO 42854 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-08-28T12:29:25.785+09:00  INFO 42854 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-08-28T12:29:30.115+09:00  INFO 42944 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 42944 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
+2024-08-28T12:29:30.116+09:00  INFO 42944 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
+2024-08-28T12:29:30.457+09:00  INFO 42944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-28T12:29:30.487+09:00  INFO 42944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
+2024-08-28T12:29:30.717+09:00  INFO 42944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-28T12:29:30.722+09:00  INFO 42944 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-28T12:29:30.722+09:00  INFO 42944 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-28T12:29:30.749+09:00  INFO 42944 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-28T12:29:30.749+09:00  INFO 42944 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 616 ms
+2024-08-28T12:29:30.813+09:00  INFO 42944 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-28T12:29:30.833+09:00  INFO 42944 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-08-28T12:29:30.845+09:00  INFO 42944 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-08-28T12:29:30.954+09:00  INFO 42944 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-28T12:29:30.965+09:00  INFO 42944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-08-28T12:29:31.007+09:00  INFO 42944 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d088813
+2024-08-28T12:29:31.008+09:00  INFO 42944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-08-28T12:29:31.025+09:00  WARN 42944 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-28T12:29:31.407+09:00  INFO 42944 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-28T12:29:31.433+09:00  INFO 42944 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:29:31.681+09:00  WARN 42944 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-28T12:29:31.980+09:00  INFO 42944 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1bd53c5c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38affd02, org.springframework.security.web.context.SecurityContextHolderFilter@7842260f, org.springframework.security.web.header.HeaderWriterFilter@28468162, org.springframework.security.web.authentication.logout.LogoutFilter@7d31fb6c, com.travel.japan.jwt.JwtAuthenticationFilter@72e9f0f7, com.travel.japan.jwt.JwtFilter@2fb24ad8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44ec6637, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a0b550a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1db7a4ae, org.springframework.security.web.session.SessionManagementFilter@698daff6, org.springframework.security.web.access.ExceptionTranslationFilter@427128a6, org.springframework.security.web.access.intercept.AuthorizationFilter@2040732f]
+2024-08-28T12:29:32.125+09:00  INFO 42944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-28T12:29:32.130+09:00  INFO 42944 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.178 seconds (process running for 2.384)
+2024-08-28T12:29:32.544+09:00  INFO 42944 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-28T12:29:32.544+09:00  INFO 42944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-28T12:29:32.546+09:00  INFO 42944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-28T12:29:32.556+09:00 DEBUG 42944 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
+2024-08-28T12:29:32.558+09:00  INFO 42944 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
+2024-08-28T12:29:32.558+09:00  INFO 42944 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
+2024-08-28T12:29:32.558+09:00  INFO 42944 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
+2024-08-28T12:29:32.558+09:00 DEBUG 42944 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
+2024-08-28T12:29:32.558+09:00  INFO 42944 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
+2024-08-28T12:29:32.559+09:00  INFO 42944 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
+2024-08-28T12:29:32.561+09:00 DEBUG 42944 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
+2024-08-28T12:29:34.764+09:00  INFO 42944 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
+2024-08-28T12:29:46.220+09:00  INFO 42944 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:29:46.221+09:00  INFO 42944 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-08-28T12:29:46.222+09:00  INFO 42944 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-08-28T12:31:51.571+09:00  INFO 44025 --- [main] com.travel.japan.JapanApplication        : Starting JapanApplication using Java 17.0.7 with PID 44025 (/Users/sunyeong/Desktop/japan/build/classes/java/main started by sunyeong in /Users/sunyeong/Desktop/japan)
+2024-08-28T12:31:51.572+09:00  INFO 44025 --- [main] com.travel.japan.JapanApplication        : The following 1 profile is active: "dev"
+2024-08-28T12:31:51.906+09:00  INFO 44025 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-28T12:31:51.932+09:00  INFO 44025 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
+2024-08-28T12:31:52.168+09:00  INFO 44025 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-28T12:31:52.173+09:00  INFO 44025 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-28T12:31:52.173+09:00  INFO 44025 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-28T12:31:52.215+09:00  INFO 44025 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-28T12:31:52.215+09:00  INFO 44025 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 626 ms
+2024-08-28T12:31:52.282+09:00  INFO 44025 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-28T12:31:52.302+09:00  INFO 44025 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-08-28T12:31:52.317+09:00  INFO 44025 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-08-28T12:31:52.423+09:00  INFO 44025 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-28T12:31:52.436+09:00  INFO 44025 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-08-28T12:31:52.480+09:00  INFO 44025 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4d4b019e
+2024-08-28T12:31:52.481+09:00  INFO 44025 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-08-28T12:31:52.498+09:00  WARN 44025 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-28T12:31:52.874+09:00  INFO 44025 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-28T12:31:52.900+09:00  INFO 44025 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:31:53.166+09:00  WARN 44025 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-28T12:31:53.522+09:00  INFO 44025 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6cfe32cd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f14eb51, org.springframework.security.web.context.SecurityContextHolderFilter@3811464b, org.springframework.security.web.header.HeaderWriterFilter@698daff6, org.springframework.security.web.authentication.logout.LogoutFilter@1bd53c5c, com.travel.japan.jwt.JwtAuthenticationFilter@3f31cf8f, com.travel.japan.jwt.JwtFilter@28721794, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c6db00d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@732fa176, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3507200d, org.springframework.security.web.session.SessionManagementFilter@59d7d574, org.springframework.security.web.access.ExceptionTranslationFilter@1b2e841, org.springframework.security.web.access.intercept.AuthorizationFilter@18356d9e]
+2024-08-28T12:31:53.673+09:00  INFO 44025 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-28T12:31:53.678+09:00  INFO 44025 --- [main] com.travel.japan.JapanApplication        : Started JapanApplication in 2.275 seconds (process running for 2.666)
+2024-08-28T12:31:54.641+09:00  INFO 44025 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-28T12:31:54.641+09:00  INFO 44025 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-28T12:31:54.642+09:00  INFO 44025 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-28T12:31:54.649+09:00 DEBUG 44025 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/gpt/question
+2024-08-28T12:31:54.650+09:00  INFO 44025 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Request URI: /api/gpt/question
+2024-08-28T12:31:54.651+09:00  INFO 44025 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Before processing - SecurityContext: null
+2024-08-28T12:31:54.651+09:00  INFO 44025 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : GPT API 요청의 Authorization 헤더: Bearer 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
+2024-08-28T12:31:54.651+09:00 DEBUG 44025 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Checking API Key: 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
+2024-08-28T12:31:54.651+09:00  INFO 44025 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : Valid API Key. Proceeding with the request.
+2024-08-28T12:31:54.652+09:00  INFO 44025 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : SecurityContext 설정 완료: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
+2024-08-28T12:31:54.653+09:00 DEBUG 44025 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/gpt/question
+2024-08-28T12:32:00.701+09:00  INFO 44025 --- [http-nio-8080-exec-1] com.travel.japan.jwt.JwtFilter           : After GPT request processing - SecurityContext: UsernamePasswordAuthenticationToken [Principal=apiKeyUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[USER]]
+2024-08-28T12:32:07.383+09:00  INFO 44025 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-28T12:32:07.383+09:00  INFO 44025 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-08-28T12:32:07.384+09:00  INFO 44025 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
