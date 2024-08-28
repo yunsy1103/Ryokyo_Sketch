@@ -6,6 +6,7 @@ import com.travel.japan.service.GPTService;
 import com.travel.japan.util.APIResponse;
 import com.travel.japan.util.ResponseCode;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +20,13 @@ import java.util.Locale;
 @RestController
 @RequestMapping("/api/gpt")
 @RequiredArgsConstructor
+@Tag(name = "GPT", description = "GPT API")
 public class GPTController {
 
     private final APIResponse apiResponse;
     private final GPTService gptService;
 
-    @Operation(summary = "Question to Chat-GPT")
+    @Operation(summary = "GPT 질문", description = "Chat-Gpt 질문 기능")
     @PostMapping("/question")
     public ResponseEntity sendQuestion(
             Locale locale,
