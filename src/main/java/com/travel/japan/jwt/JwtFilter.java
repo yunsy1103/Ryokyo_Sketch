@@ -31,6 +31,13 @@ public class JwtFilter extends OncePerRequestFilter {
 
         try {
 
+            // Swagger UI 관련 요청에 대해 필터를 적용하지 않음
+            if (path.startsWith("/swagger-ui") || path.startsWith("/v3/api-docs") || path.startsWith("/swagger-resources")) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+
             if (path.startsWith("/api/gpt")) {
                 handleGptRequest(request, response, filterChain);
                 return;
