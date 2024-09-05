@@ -43,11 +43,6 @@ dependencies {
 
 }
 
-test{
+test {
 	useJUnitPlatform()
-}
-
-tasks.withType(Test) {
-	scanForTestClasses = false
-	include "**/*Test.class"
 }
