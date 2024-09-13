@@ -22,5 +22,13 @@ jobs:
         run: chmod +x ./gradlew
         shell: bash
 
-      - name: Build and Test
-        run: ./gradlew build test
+
+      - name: Run tests with H2 database
+        run: ./gradlew test
+        env:
+          SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+          SPRING_DATASOURCE_USERNAME: sa
+          SPRING_DATASOURCE_PASSWORD: ''
+          SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+          SPRING_JPA_HIBERNATE_DDL_AUTO: update
+          SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.H2Dialect
