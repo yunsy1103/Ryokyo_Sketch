@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin(origins = "http://43.203.1.237:8081")
+@CrossOrigin(origins = "*")  // 모든 출처 허용
 @RequestMapping("/api")
 @Tag(name = "Member", description = "Member API")
 public class MemberController {
@@ -34,16 +34,6 @@ public class MemberController {
         }
     }
 
-   // @ApiOperation(value = "회원 로그인", notes = "로그인")
-   // @PostMapping("/login")
-    //public ResponseEntity<String> login(@RequestBody MemberSignInDto request) {
-      //  try {
-        //    String token = memberService.signIn(request);
-          //  return ResponseEntity.ok().body(token);
-       // } catch (Exception e) {
-         //   return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: " + e.getMessage());
-        //}
-    //}
    @Operation(summary = "회원 로그인", description = "로그인")
    @PostMapping("/login")
    public ResponseEntity<?> login(@RequestBody MemberSignInDto request) {
