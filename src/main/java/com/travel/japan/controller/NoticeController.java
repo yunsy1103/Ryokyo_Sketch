@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin(origins = "http://3.36.49.115:8081")
+@CrossOrigin(origins = "http://43.203.1.237:8081")
 @RequestMapping("/api")
 @Tag(name = "Notice", description = "Notice API")
 public class NoticeController {

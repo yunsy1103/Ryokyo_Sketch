@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Locale;
 
 @RestController
-@CrossOrigin(origins = "http://3.36.49.115:8081")
+@CrossOrigin(origins = "http://43.203.1.237:8081")
 @RequestMapping("/api/gpt")
 @RequiredArgsConstructor
 @Tag(name = "GPT", description = "GPT API")
