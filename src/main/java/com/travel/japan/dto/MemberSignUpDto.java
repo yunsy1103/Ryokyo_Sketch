@@ -9,6 +9,8 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -31,7 +33,7 @@ public class MemberSignUpDto {
     private String gender;
 
     @NotNull(message = "생일을 입력해주세요")
-    private String birth;
+    private LocalDate birth;
 
     @NotNull(message = "국적을 입력해주세요")
     private Nationality nationality;
