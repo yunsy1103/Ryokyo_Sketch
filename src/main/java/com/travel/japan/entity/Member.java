@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.management.relation.Role;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -39,8 +40,8 @@ public class Member extends BaseEntity {
     @Column(length = 10)
     private String gender;
 
-    @Column(length = 50)
-    private String birth;
+    @Column(nullable = false)
+    private LocalDate birth;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 50)
