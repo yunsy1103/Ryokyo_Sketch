@@ -28,7 +28,7 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50, unique = true)
+    @Column(length = 100, unique = true)
     private String email;
 
     @Column(length = 255)
@@ -44,7 +44,7 @@ public class Member extends BaseEntity {
     private LocalDate birth;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 50)
+    @Column(length = 100)
     private Nationality nationality;
 
     // 상태 필드 추가
