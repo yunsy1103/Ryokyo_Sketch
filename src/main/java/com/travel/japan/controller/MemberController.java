@@ -30,6 +30,7 @@ public class MemberController {
     @ResponseStatus(HttpStatus.OK)
     public String join(@Validated @RequestBody MemberSignUpDto register) {
         log.debug("Received Register Data: {}", register);
+        log.info("Test log message at INFO level");
         try {
             Long memberId = memberService.signup(register);
             return memberId.toString();
