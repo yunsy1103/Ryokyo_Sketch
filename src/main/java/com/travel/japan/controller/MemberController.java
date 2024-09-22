@@ -12,7 +12,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j  // Lombok의 Slf4j 애노테이션 추가
 @RequiredArgsConstructor
 @RestController
 @CrossOrigin(origins = "*")  // 모든 출처 허용
@@ -21,10 +24,12 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
     private final MemberService memberService;
 
+
     @Operation(summary = "회원 등록", description = "회원 가입")
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.OK)
     public String join(@Validated @RequestBody MemberSignUpDto register) {
+        log.debug("Received Register Data: {}", register);
         try {
             Long memberId = memberService.signup(register);
             return memberId.toString();
