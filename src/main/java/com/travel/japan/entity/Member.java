@@ -44,6 +44,7 @@ public class Member extends BaseEntity {
     private Nationality nationality;
 
     // 상태 필드 추가
+    @Builder.Default
     @Column(nullable = false)
     private String status = "active";  // 기본값을 'active'로 설정
 
