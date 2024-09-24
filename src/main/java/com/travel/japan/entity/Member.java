@@ -28,24 +28,28 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(name = "email",unique = true)
     private String email;
 
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "nickname")
     private String nickname;
 
+    @Column(name = "gender")
     private String gender;
 
-    @Column(nullable = false)
+    @Column(name = "birthday",nullable = false)
     private LocalDate birth;
 
+    @Column(name = "nationality")
     @Enumerated(EnumType.STRING)
     private Nationality nationality;
 
     // 상태 필드 추가
     @Builder.Default
-    @Column(nullable = false)
+    @Column(name = "status",nullable = false)
     private String status = "active";  // 기본값을 'active'로 설정
 
     public void encodePassword(PasswordEncoder passwordEncoder){
