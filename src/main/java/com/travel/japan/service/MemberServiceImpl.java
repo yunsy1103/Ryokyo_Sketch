@@ -52,8 +52,7 @@ public class MemberServiceImpl implements MemberService{
         }
 
 
-        Member member = memberRepository.save(memberSignUptDto.toEntity(passwordEncoder));
-        member.encodePassword(passwordEncoder);
+        Member member = memberSignUptDto.toEntity(passwordEncoder);
         memberRepository.save(member);
 
         return member.getId();

@@ -48,7 +48,7 @@ public class MemberSignUpDto {
                 .nickname(nickname)
                 .gender(gender)
                 .birth(birth)
-                .password(password)
+                .password(encodedPassword)
                 .nationality(nationality)
                 .build();
     }
