@@ -52,6 +52,11 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
                     String email = refreshToken1.get().getEmail();
                     TokenInfo tokenInfo = jwtTokenProvider.generateToken(email, Collections.singletonList("ROLE_USER"));
                     String newAccessToken = tokenInfo.getAccessToken();
+                    String newRefreshToken = tokenInfo.getRefreshToken();
+
+                    // 새로 발급된 토큰을 콘솔에 출력
+                    System.out.println("Access Token: " + newAccessToken);
+                    System.out.println("Refresh Token: " + newRefreshToken);
 
                     jwtTokenProvider.setHeaderAccessToken((HttpServletResponse) response, newAccessToken);
 
