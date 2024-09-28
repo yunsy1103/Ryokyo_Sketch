@@ -45,4 +45,5 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	outputs.upToDateWhen { false }
 }
