@@ -29,6 +29,19 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
     private final RefreshTokenRepository refreshTokenRepository;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        // 요청 경로 가져오기
+        String path = httpRequest.getRequestURI();  // 또는 getServletPath()를 사용할 수 있음
+
+        // 회원가입과 로그인 요청은 필터링하지 않음
+        if (path.equals("/api/register") || path.equals("/api/login")) {
+            chain.doFilter(request, response);  // 필터 체인 계속 진행
+            return;
+        }
+
         String accessToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request, "Access");
         String refreshToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request, "Refresh");
 
