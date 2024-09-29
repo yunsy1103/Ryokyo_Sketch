@@ -34,7 +34,8 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         // 요청 경로 가져오기
-        String path = httpRequest.getRequestURI();  // 또는 getServletPath()를 사용할 수 있음
+        String path = httpRequest.getServletPath();  // 또는 getServletPath()를 사용할 수 있음
+        log.info("Request Path: {}", path);
 
         // 회원가입과 로그인 요청은 필터링하지 않음
         if (path.equals("/api/register") || path.equals("/api/login")) {
