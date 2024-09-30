@@ -26,9 +26,6 @@ public class MemberSignUpDto {
     private String checkedPassword;
 
 
-
-
-    @Builder
     public Member toEntity(PasswordEncoder passwordEncoder) {
         String encodedPassword = passwordEncoder.encode(password);
         return Member.builder()
