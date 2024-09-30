@@ -1,10 +1,7 @@
 package com.travel.japan.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.repository.cdi.Eager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Entity
+@Data
 @Table(name = "member")
 @Builder
 @NoArgsConstructor
@@ -28,22 +26,22 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "email",unique = true)
+    @Column(name = "email",unique = true,nullable = false)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password",nullable = false)
     private String password;
 
-    @Column(name = "nickname")
+    @Column(name = "nickname",nullable = true)
     private String nickname;
 
-    @Column(name = "gender")
+    @Column(name = "gender",nullable = true)
     private String gender;
 
-    @Column(name = "birthday",nullable = false)
+    @Column(name = "birthday",nullable = true)
     private LocalDate birth;
 
-    @Column(name = "nationality")
+    @Column(name = "nationality",nullable = true)
     @Enumerated(EnumType.STRING)
     private Nationality nationality;
 

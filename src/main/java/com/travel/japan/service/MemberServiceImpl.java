@@ -1,6 +1,7 @@
 package com.travel.japan.service;
 
 import com.travel.japan.config.SecurityConfig;
+import com.travel.japan.dto.MemberProfileUpdateDto;
 import com.travel.japan.dto.MemberSignInDto;
 import com.travel.japan.dto.MemberSignUpDto;
 import com.travel.japan.entity.Member;
@@ -16,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -82,9 +84,30 @@ public class MemberServiceImpl implements MemberService{
         }
         return tokenInfo;
 
-        //return JwtUtil.createJwt(member.getNickname(), secretKey, expiredMs);
     }
 
+    public void updateProfile(String email, MemberProfileUpdateDto profileDto) {
+        Member member = memberRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
 
+        // 프로필 정보 업데이트
+        if (profileDto.getNickname() != null) {
+            member.setNickname(profileDto.getNickname());
+        }
+        if (profileDto.getGender() != null) {
+            member.setGender(profileDto.getGender());
+        }
+        if (profileDto.getBirth() != null) {
+            member.setBirth(profileDto.getBirth());
+        }
+        if (profileDto.getNationality() != null) {
+            member.setNationality(profileDto.getNationality());
+        }
 
+        memberRepository.save(member);
+    }
 }
+
+
+
+

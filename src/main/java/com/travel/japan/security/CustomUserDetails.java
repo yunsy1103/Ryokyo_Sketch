@@ -8,11 +8,19 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class CustomUserDetails implements UserDetails {
+    private Long id;        // 사용자 ID
+    private String email;   // 이메일
+    private String password; // 비밀번호
+    private Collection<? extends GrantedAuthority> authorities;
 
-    private final Member member;
+
+
 
     public CustomUserDetails(Member member) {
-        this.member = member;
+        this.id = member.getId();
+        this.email = member.getEmail();
+        this.password = member.getPassword();
+        this.authorities = Collections.emptyList(); // 권한 설정 (필요에 따라)
     }
 
     @Override
@@ -23,12 +31,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return member.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return member.getEmail();
+        return email; // 이메일을 username으로 사용
     }
 
     @Override

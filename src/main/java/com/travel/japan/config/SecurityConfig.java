@@ -28,6 +28,7 @@ import org.springframework.web.client.RestTemplate;
 public class SecurityConfig {
 
 
+
     private final JwtTokenProvider jwtTokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
 

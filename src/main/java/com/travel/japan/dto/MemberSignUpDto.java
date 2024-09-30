@@ -25,18 +25,6 @@ public class MemberSignUpDto {
     @NotBlank(message = "비밀번호 확인을 입력해주세요.")
     private String checkedPassword;
 
-    @NotBlank(message = "닉네임을 입력해주세요.")
-    @Size(min=2, message = "닉네임이 너무 짧습니다.")
-    private String nickname;
-
-    @NotNull(message = "성별을 입력해주세요")
-    private String gender;
-
-    @NotNull(message = "생일을 입력해주세요")
-    private LocalDate birth;
-
-    @NotNull(message = "국적을 입력해주세요")
-    private Nationality nationality;
 
 
 
@@ -45,11 +33,7 @@ public class MemberSignUpDto {
         String encodedPassword = passwordEncoder.encode(password);
         return Member.builder()
                 .email(email)
-                .nickname(nickname)
-                .gender(gender)
-                .birth(birth)
                 .password(encodedPassword)
-                .nationality(nationality)
                 .build();
     }
 }

@@ -1,15 +1,19 @@
 package com.travel.japan.controller;
 
 import com.travel.japan.dto.LoginResponseDto;
+import com.travel.japan.dto.MemberProfileUpdateDto;
 import com.travel.japan.dto.MemberSignInDto;
 import com.travel.japan.dto.MemberSignUpDto;
 import com.travel.japan.jwt.TokenInfo;
+import com.travel.japan.security.CustomUserDetails;
 import com.travel.japan.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,4 +52,12 @@ public class MemberController {
        }
    }
 
+    @Operation(summary = "회원 페이지", description = "마이페이지")
+    @PutMapping("/profile")
+    public ResponseEntity<String> updateProfile(@RequestBody MemberProfileUpdateDto profileDto,
+                                                @AuthenticationPrincipal CustomUserDetails userDetails) {
+        String email = userDetails.getUsername(); // 인증된 사용자의 이메일
+        memberService.updateProfile(email, profileDto);
+        return ResponseEntity.ok("프로필 업데이트 성공");
+    }
 }

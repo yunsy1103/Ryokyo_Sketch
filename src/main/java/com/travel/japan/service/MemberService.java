@@ -1,5 +1,6 @@
 package com.travel.japan.service;
 
+import com.travel.japan.dto.MemberProfileUpdateDto;
 import com.travel.japan.dto.MemberSignInDto;
 import com.travel.japan.dto.MemberSignUpDto;
 import com.travel.japan.entity.Member;
@@ -13,6 +14,7 @@ public interface MemberService {
     public Long signup(MemberSignUpDto memberSignUpDto) throws Exception;
 
     public TokenInfo signIn(MemberSignInDto requestDto) throws Exception;
+    public void updateProfile(String email, MemberProfileUpdateDto profileDto);
 
 }
 
