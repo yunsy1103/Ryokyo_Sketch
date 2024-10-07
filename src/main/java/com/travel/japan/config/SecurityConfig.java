@@ -67,7 +67,7 @@ public class SecurityConfig {
         JwtFilter jwtFilter = new JwtFilter(memberService, secretKey); // JwtFilter 객체 생성
         return httpSecurity
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.disable())
+                .cors(cors -> {} ) // CORS 활성화
                 .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/h2-console/**").permitAll()
