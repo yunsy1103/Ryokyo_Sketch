@@ -37,11 +37,11 @@ public class JwtFilter extends OncePerRequestFilter {
                 return;
             }
 
-
             if (path.startsWith("/api/gpt")) {
-                handleGptRequest(request, response, filterChain);
+                filterChain.doFilter(request, response);
                 return;
             }
+
 
             if (path.equals("/api/login") || path.equals("/api/register")) {
                 filterChain.doFilter(request, response);
@@ -49,6 +49,9 @@ public class JwtFilter extends OncePerRequestFilter {
             }
 
             final String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
+
+            // 로그로 Authorization 헤더 출력
+            logger.debug("Authorization 헤더: " + authorization);
 
             if (authorization == null || !authorization.startsWith("Bearer ")) {
                 logger.error("Authorization 헤더가 없거나 잘못된 형식입니다.");
@@ -58,6 +61,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
             String token = authorization.substring(7);
             logger.info("Token: " + token);
+
 
             if (JwtUtil.isExpired(token, secretKey)) {
                 logger.error("토큰이 만료되었습니다.");

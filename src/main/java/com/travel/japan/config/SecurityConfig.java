@@ -72,14 +72,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/login").permitAll()
-                        .requestMatchers("/api/register").permitAll()
-                        .requestMatchers("/swagger-ui.html").permitAll()
+                        .requestMatchers("/swagger-ui.html").permitAll().requestMatchers("/api/notice").authenticated()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/v3/api-docs/**").permitAll()
                         .requestMatchers("/swagger-resources/**").permitAll()
-                        .requestMatchers("/webjars/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/gpt/**").permitAll() // GPT API 경로 허용
-                        .anyRequest().authenticated() // 다른 모든 요청은 인증 필요
+                        .requestMatchers("/webjars/**").permitAll().requestMatchers("/api/register").permitAll()
+                        .requestMatchers("/api/gpt/**").permitAll() // GPT API 경로 허용
+                        //.anyRequest().authenticated() // 다른 모든 요청은 인증 필요
                 )
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -8,34 +8,31 @@ import java.util.Date;
 
 public class JwtUtil {
 
-    //public static String getUserName(String token, String secretKey){
-       // String res = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token)
-         //       .getBody().get("userName", String.class);
-        //System.out.println("res : " + res);
-    //  return res;
-    //}
     public static String getUserName(String token, String secretKey) {
         try {
-            Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+            Claims claims = Jwts.parser().setSigningKey(secretKey.getBytes()).parseClaimsJws(token).getBody();
             return claims.getSubject(); // "sub" 클레임에서 사용자 이름을 가져옵니다.
         } catch (Exception e) {
             return null;
         }
     }
 
-  //  public static boolean isExpired(String token, String secretKey){
-    //    return Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token)
-      //          .getBody().getExpiration().before(new Date());
-    //}
-
     public static boolean isExpired(String token, String secretKey) {
         try {
-            Date expiration = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getExpiration();
-            return expiration.before(new Date());
+            Date expiration = Jwts.parser().setSigningKey(secretKey.getBytes()).parseClaimsJws(token).getBody().getExpiration();
+            boolean isExpired = expiration.before(new Date());
+            if (isExpired) {
+                System.out.println("토큰이 만료되었습니다.");
+            } else {
+                System.out.println("토큰이 유효합니다.");
+            }
+            return isExpired;
         } catch (Exception e) {
+            System.err.println("토큰 파싱 중 오류 발생: " + e.getMessage());
             return true;
         }
     }
+
 
     public static String createJwt(String username, String secretKey, Long expiredMs){
         Claims claims = Jwts.claims();

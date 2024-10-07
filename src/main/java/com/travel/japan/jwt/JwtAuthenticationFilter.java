@@ -38,16 +38,25 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         log.info("Request Path: {}", path);
 
         // 회원가입과 로그인 요청은 필터링하지 않음
-        if (path.equals("/api/register") || path.equals("/api/login")) {
+        if (path.equals("/api/register") || path.equals("/api/login") || path.equals("/error")) {
             chain.doFilter(request, response);  // 필터 체인 계속 진행
             return;
         }
+
+
+        // GPT 경로는 필터링하지 않음
+        if (path.startsWith("/api/gpt")) {
+            chain.doFilter(request, response);
+            return;
+        }
+
 
         String accessToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request);
         String refreshToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request);
 
 
-        log.info("Access Token: {}", accessToken);
+       // log.info("Access Token: {}", accessToken);
+        log.info("Access Token: {}", accessToken != null ? accessToken : "Access Token 없음");
         log.info("Refresh Token: {}", refreshToken);
 
         if (accessToken != null) {
@@ -55,7 +64,11 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
             if (jwtTokenProvider.validateToken(accessToken)) {
                 Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-                log.info("AccessToken 유효");
+                log.info("AccessToken 유효  : {}", accessToken);
+                Authentication currentAuth = SecurityContextHolder.getContext().getAuthentication();
+                log.info("현재 인증 정보: {}", currentAuth != null ? currentAuth.getName() : "인증 정보 없음");
+
+
             }
             // accessToken 만료, refreshToken 유효성 검사
             else if (refreshToken != null && jwtTokenProvider.refreshTokenValidation(refreshToken)) {
@@ -79,7 +92,9 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 
                     // 인증 정보 갱신
                     Authentication authentication = jwtTokenProvider.getAuthentication(newAccessToken);
+                    log.info("Setting authentication for user: {}", authentication.getName());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
+                    log.info("Authentication set successfully");
 
                     log.info("AccessToken이 만료되었고, 새로운 AccessToken이 발급되었습니다.");
                 } else {
@@ -97,7 +112,7 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
             }
         } else {
             // AccessToken이 존재하지 않는 경우
-            log.error("Authorization 헤더가 없거나 잘못된 형식입니다.");
+            log.error("Authorization 헤더가 없거나 잘못된 형식입니다11.");
             jwtExceptionHandler((HttpServletResponse) response, "Unauthorized", HttpStatus.UNAUTHORIZED);
             return;
         }

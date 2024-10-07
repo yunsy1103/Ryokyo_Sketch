@@ -45,6 +45,7 @@ public class JwtTokenProvider {
     public TokenInfo generateToken(String userPk, List<String> roles){
         Claims claims = Jwts.claims().setSubject(userPk);
         claims.put("roles", roles);
+        log.info("Generating token for user: {}, with roles: {}", userPk, roles);
         Date now = new Date();
 
         String accessToken = Jwts.builder()
@@ -83,16 +84,24 @@ public class JwtTokenProvider {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 
-   // public String getHeaderToken(HttpServletRequest request, String type) {
+   //public String getHeaderToken(HttpServletRequest request, String type) {
      //   return type.equals("Access") ? request.getHeader("Access_Token") : request.getHeader("Refresh_Token");
-    //}
+  //  }
    public String getHeaderToken(HttpServletRequest request) {
        String bearerToken = request.getHeader("Authorization");
+       log.info("Authorization 헤더 값: {}", bearerToken != null ? bearerToken : "Authorization 헤더가 존재하지 않음");
        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-           return bearerToken.substring(7);
+           String token = bearerToken.substring(7);
+           log.info("추출된 토큰 값: {}", token); // 토큰 값을 로그로 출력
+           return token;
+       } else if (bearerToken == null) {
+           log.error("Authorization 헤더가 요청에 포함되지 않았습니다.");
+       } else {
+           log.error("Authorization 헤더가 'Bearer '로 시작하지 않습니다.");
        }
        return null;
    }
+
 
 
     public boolean validateToken(String jwtToken) {
@@ -100,6 +109,7 @@ public class JwtTokenProvider {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwtToken).getBody();
             Date expiration = claims.getExpiration();
             log.info("expiration : " + expiration);
+            log.info("Token roles: {}", claims.get("roles"));
             return true;
         } catch (Exception e) {
             return false;
