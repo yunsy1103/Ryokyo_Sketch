@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*") // 모든 출처 허용
+@CrossOrigin(origins = "*") // 모든 출처 허용
 @RequestMapping("/api")
 @Tag(name = "Notice", description = "Notice API")
 public class NoticeController {
