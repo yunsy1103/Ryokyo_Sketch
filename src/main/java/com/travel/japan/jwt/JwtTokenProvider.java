@@ -83,9 +83,17 @@ public class JwtTokenProvider {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 
-    public String getHeaderToken(HttpServletRequest request, String type) {
-        return type.equals("Access") ? request.getHeader("Access_Token") : request.getHeader("Refresh_Token");
-    }
+   // public String getHeaderToken(HttpServletRequest request, String type) {
+     //   return type.equals("Access") ? request.getHeader("Access_Token") : request.getHeader("Refresh_Token");
+    //}
+   public String getHeaderToken(HttpServletRequest request) {
+       String bearerToken = request.getHeader("Authorization");
+       if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+           return bearerToken.substring(7);
+       }
+       return null;
+   }
+
 
     public boolean validateToken(String jwtToken) {
         try {

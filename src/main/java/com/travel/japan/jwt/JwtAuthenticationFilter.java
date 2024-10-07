@@ -43,8 +43,8 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
             return;
         }
 
-        String accessToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request, "Access");
-        String refreshToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request, "Refresh");
+        String accessToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request);
+        String refreshToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request);
 
 
         log.info("Access Token: {}", accessToken);
