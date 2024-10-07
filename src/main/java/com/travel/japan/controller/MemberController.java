@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin(origins = "*")  // 모든 출처 허용
 @RequestMapping("/api")
 @Tag(name = "Member", description = "Member API")
 public class MemberController {
