@@ -24,7 +24,4 @@ public class Notice extends BaseEntity {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "view_cnt")
-    private Integer viewCnt;
-
 }

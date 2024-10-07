@@ -32,7 +32,6 @@ public class NoticeController {
         Notice notice = new Notice();
         notice.setTitle(responseDTO.getTitle());
         notice.setContent(responseDTO.getContent());
-        notice.setViewCnt(responseDTO.getViewCnt());
 
         return ResponseEntity.ok(noticeService.createNotice(notice));
     }

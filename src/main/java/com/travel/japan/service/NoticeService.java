@@ -40,9 +40,6 @@ public class NoticeService {
         Notice notice = noticeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Board not exist with id :" + id));
 
-        int cnt = notice.getViewCnt();
-        notice.setViewCnt(cnt + 1);
-
         return ResponseEntity.ok(notice);
     }
 

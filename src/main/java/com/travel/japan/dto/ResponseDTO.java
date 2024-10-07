@@ -10,8 +10,6 @@ public class ResponseDTO {
     @Size(max = 255, message = "Content cannot exceed 255 characters")
     private String content;
 
-    private Integer viewCnt;
-    // Getters and setters
 
     public String getTitle() {
         return title;
@@ -28,11 +26,5 @@ public class ResponseDTO {
     }
 
 
-    public Integer getViewCnt() {
-        return viewCnt;
-    }
 
-    public void setViewCnt(Integer viewCnt) {
-        this.viewCnt = viewCnt;
-    }
 }
