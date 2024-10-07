@@ -72,7 +72,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/login").permitAll()
-                        .requestMatchers("/api/notice/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/notice").hasRole("USER")
                         .requestMatchers("/api/register").permitAll()
                         .requestMatchers("/swagger-ui.html").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
