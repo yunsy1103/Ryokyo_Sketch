@@ -75,7 +75,7 @@ public class SecurityConfig {
                                 .requestMatchers("/api/match/**").permitAll()
                                 .requestMatchers("/firebase/**").permitAll()
                                 .requestMatchers("/swagger-ui.html").permitAll().requestMatchers("/api/notice/**").authenticated()
-                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/swagger-ui/**").permitAll().requestMatchers("/api/profile").authenticated()
                         .requestMatchers("/v3/api-docs/**").permitAll()
                         .requestMatchers("/swagger-resources/**").permitAll()
                         .requestMatchers("/webjars/**").permitAll().requestMatchers("/api/register").permitAll()
