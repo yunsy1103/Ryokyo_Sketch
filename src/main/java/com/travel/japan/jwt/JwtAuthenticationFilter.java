@@ -38,11 +38,27 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         log.info("Request Path: {}", path);
 
         // 회원가입과 로그인 요청은 필터링하지 않음
-        if (path.equals("/api/register") || path.equals("/api/login") || path.equals("/error")) {
+        if (path.equals("/api/register") || path.equals("/api/login") || path.equals("/error")){
             chain.doFilter(request, response);  // 필터 체인 계속 진행
             return;
         }
 
+        // GPT 경로는 필터링하지 않음
+        if (path.startsWith("/firebase")) {
+            chain.doFilter(request, response);
+            return;
+        }
+        // GPT 경로는 필터링하지 않음
+        if (path.startsWith("/api/profile")) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        // GPT 경로는 필터링하지 않음
+        if (path.startsWith("/api/match")) {
+            chain.doFilter(request, response);
+            return;
+        }
 
         // GPT 경로는 필터링하지 않음
         if (path.startsWith("/api/gpt")) {

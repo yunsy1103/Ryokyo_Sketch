@@ -37,10 +37,26 @@ public class JwtFilter extends OncePerRequestFilter {
                 return;
             }
 
-            if (path.startsWith("/api/gpt")) {
+            if (path.startsWith("/api/gpt"))  {
                 filterChain.doFilter(request, response);
                 return;
             }
+
+            if (path.startsWith("/api/match"))  {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            if (path.startsWith("/api/profile"))  {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            if (path.startsWith("/firebase")) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
 
 
             if (path.equals("/api/login") || path.equals("/api/register")) {
