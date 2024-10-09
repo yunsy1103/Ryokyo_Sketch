@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
+@Setter
 @Entity
 @Data
 @Table(name = "member")
@@ -26,7 +27,7 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "email",unique = true,nullable = false)
+    @Column(name = "email",unique = true, nullable = false)
     private String email;
 
     @Column(name = "password",nullable = false)
@@ -45,10 +46,18 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Nationality nationality;
 
+    @Column(name = "latitude", nullable = true)
+    private double latitude;
+
+    @Column(name = "longitude", nullable = true)
+    private double longitude;
+
     // 상태 필드 추가
     @Builder.Default
     @Column(name = "status",nullable = false)
     private String status = "active";  // 기본값을 'active'로 설정
+
+
 
     public void encodePassword(PasswordEncoder passwordEncoder){
         this.password = passwordEncoder.encode(password);

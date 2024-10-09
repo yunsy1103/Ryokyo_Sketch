@@ -1,7 +1,10 @@
 package com.travel.japan.controller;
 
 import com.travel.japan.dto.ResponseDTO;
+import com.travel.japan.entity.Member;
 import com.travel.japan.entity.Notice;
+import com.travel.japan.entity.NoticeImage;
+import com.travel.japan.repository.MemberRepository;
 import com.travel.japan.service.NoticeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -10,10 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -23,16 +31,47 @@ public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
+    private final MemberRepository memberRepository;
+
 
     // create board rest api
     @Operation(summary = "게시글 생성", description = "전체 게시글 생성")
     @PostMapping("/notice")
-    public ResponseEntity<?> createNotice(@Validated @RequestBody ResponseDTO responseDTO) {
+    public ResponseEntity<?> createNotice(@Validated @RequestPart("data")ResponseDTO responseDTO,
+                                          @RequestPart(value = "images", required = false) List<MultipartFile> files) {
+
+        // 현재 인증된 사용자 가져오기
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentEmail = authentication.getName();
+
+        // 이메일로 Member 엔티티 조회
+        Member member = memberRepository.findByEmail(currentEmail)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+
+        // 닉네임 가져오기
+        String nickname = member.getNickname();
+
         Notice notice = new Notice();
         notice.setTitle(responseDTO.getTitle());
         notice.setContent(responseDTO.getContent());
+        notice.setNickname(nickname);
 
-        return ResponseEntity.ok(noticeService.createNotice(notice));
+        // Notice 엔티티와 이미지 파일을 함께 서비스 계층에 전달
+        Notice savedNotice = noticeService.createNotice(notice, files);
+
+
+        // 저장된 게시글 정보를 DTO로 반환
+        ResponseDTO response = ResponseDTO.builder()
+                .title(savedNotice.getTitle())
+                .content(savedNotice.getContent())
+                .nickname(savedNotice.getNickname())
+                .imageUrls(savedNotice.getBoardImages().stream()
+                        .map(NoticeImage::getUrl)
+                        .collect(Collectors.toList()))
+                .build();
+
+        return ResponseEntity.ok(response);
     }
 
     // list all boards
@@ -48,7 +87,7 @@ public class NoticeController {
     // get board by id
     @Operation(summary = "게시글 검색", description = "해당 게시글 검색")
     @GetMapping("/notice/{id}")
-    public ResponseEntity<Notice> getBoardById(@PathVariable Integer id) {
+    public ResponseEntity<Notice> getBoardById(@PathVariable Long id) {
         return noticeService.getBoardById(id);
     }
 
@@ -56,14 +95,14 @@ public class NoticeController {
     @Operation(summary = "게시글 수정", description = "해당 게시글 수정")
     @PutMapping("/notice/{id}")
     public ResponseEntity<Notice> updateBoard(
-            @PathVariable Integer id, @RequestBody Notice boardDetails) {
+            @PathVariable Long id, @RequestBody Notice boardDetails) {
         return noticeService.updateBoard(id, boardDetails);
     }
 
     // delete board
     @Operation(summary = "게시글 삭제", description = "해당 게시글 삭제")
     @DeleteMapping("/notice/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteBoard(@PathVariable Integer id) {
+    public ResponseEntity<Map<String, Boolean>> deleteBoard(@PathVariable Long id) {
         return noticeService.deleteBoard(id);
     }
 
