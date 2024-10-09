@@ -103,6 +103,7 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 
                     // 인증 정보 갱신
                     Authentication authentication = jwtTokenProvider.getAuthentication(newAccessToken);
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
                     log.info("Setting authentication for user: {}", authentication.getName());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                     log.info("Authentication set successfully");
