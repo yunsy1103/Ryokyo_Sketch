@@ -48,11 +48,6 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
             chain.doFilter(request, response);
             return;
         }
-        // GPT 경로는 필터링하지 않음
-        if (path.startsWith("/api/profile")) {
-            chain.doFilter(request, response);
-            return;
-        }
 
         // GPT 경로는 필터링하지 않음
         if (path.startsWith("/api/match")) {
