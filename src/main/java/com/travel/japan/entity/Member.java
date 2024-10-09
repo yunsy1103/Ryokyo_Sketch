@@ -46,11 +46,6 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Nationality nationality;
 
-    @Column(name = "latitude", nullable = true)
-    private double latitude;
-
-    @Column(name = "longitude", nullable = true)
-    private double longitude;
 
     // 상태 필드 추가
     @Builder.Default
