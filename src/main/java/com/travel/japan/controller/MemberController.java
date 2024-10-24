@@ -33,14 +33,13 @@ public class MemberController {
 
     @Operation(summary = "회원 등록", description = "회원 가입")
     @PostMapping("/register")
-    @ResponseStatus(HttpStatus.OK)
-    public String join(@Validated @RequestBody MemberSignUpDto register) {
+    public ResponseEntity<String> join(@Validated @RequestBody MemberSignUpDto register) {
         try {
             Long memberId = memberService.signup(register);
-            return memberId.toString();
+            return ResponseEntity.ok(memberId.toString()); // 상태 코드 200과 함께 응답
         } catch (Exception e) {
-            // 예외가 발생한 경우, 적절한 메시지와 함께 반환합니다.
-            return "회원가입 중 오류가 발생했습니다: " + e.getMessage();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("회원가입 중 오류가 발생했습니다: " + e.getMessage()); // 예외 발생 시 상태 코드 500과 메시지 반환
         }
     }
 
