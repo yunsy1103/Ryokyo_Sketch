@@ -27,7 +27,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class JwtTokenProvider {
 
-    @Value("{jwt.secret}")
+    @Value("${jwt.secret}")
     private String secretKey;
     // 토큰 유효시간 30분
     private long tokenValidTime =  30 * 60 * 1000L;
@@ -36,7 +36,6 @@ public class JwtTokenProvider {
 
     private final UserDetailsService userDetailsService;
     private final RefreshTokenRepository refreshTokenRepository;
-
 
 
     @PostConstruct
@@ -85,10 +84,7 @@ public class JwtTokenProvider {
     public String getUserPk(String token) {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
-
-   //public String getHeaderToken(HttpServletRequest request, String type) {
-     //   return type.equals("Access") ? request.getHeader("Access_Token") : request.getHeader("Refresh_Token");
-  //  }
+    
    public String getHeaderToken(HttpServletRequest request) {
        String bearerToken = request.getHeader("Authorization");
        log.info("Authorization 헤더 값: {}", bearerToken != null ? bearerToken : "Authorization 헤더가 존재하지 않음");
