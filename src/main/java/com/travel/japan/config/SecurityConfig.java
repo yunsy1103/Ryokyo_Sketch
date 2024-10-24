@@ -27,8 +27,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableWebSecurity
 public class SecurityConfig {
 
-
-
     private final JwtTokenProvider jwtTokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
 
@@ -61,7 +59,6 @@ public class SecurityConfig {
     }
 
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         JwtFilter jwtFilter = new JwtFilter(memberService, secretKey); // JwtFilter 객체 생성
@@ -72,13 +69,17 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/login").permitAll()
-                                .requestMatchers("/api/match/**").permitAll()
-                                .requestMatchers("/firebase/**").permitAll()
-                                .requestMatchers("/swagger-ui.html").permitAll().requestMatchers("/api/notice/**").authenticated()
-                        .requestMatchers("/swagger-ui/**").permitAll().requestMatchers("/api/profile").authenticated()
+                                .requestMatchers("/api/match/**").authenticated()
+                                .requestMatchers("/api/location/**").authenticated()
+                                .requestMatchers("/firebase/**").authenticated()
+                                .requestMatchers("/swagger-ui.html").permitAll()
+                                .requestMatchers("/api/notice/**").authenticated()
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                                .requestMatchers("/api/profile").authenticated()
                         .requestMatchers("/v3/api-docs/**").permitAll()
                         .requestMatchers("/swagger-resources/**").permitAll()
-                        .requestMatchers("/webjars/**").permitAll().requestMatchers("/api/register").permitAll()
+                        .requestMatchers("/webjars/**").permitAll()
+                                .requestMatchers("/api/register").permitAll()
                         .requestMatchers("/api/gpt/**").permitAll() // GPT API 경로 허용
                         //.anyRequest().authenticated() // 다른 모든 요청은 인증 필요
                 )
