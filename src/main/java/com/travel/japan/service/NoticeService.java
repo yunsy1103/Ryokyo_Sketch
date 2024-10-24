@@ -63,33 +63,31 @@ public class NoticeService {
 
 
 
-    // list all boards
+    // 전체 게시글 조회
     public Page<Notice> listAllNotices(Pageable pagable) {
         return noticeRepository.findAll(pagable);
     }
 
 
-    // get board by id
-    public ResponseEntity<Notice> getBoardById(@PathVariable Long id) {
-        Notice notice = noticeRepository.findById(id)
+    // 게시글 ID로 조회
+    public Notice getBoardById(Long id) {
+        return noticeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Board not exist with id :" + id));
-
-        return ResponseEntity.ok(notice);
     }
-    // update board
-    public ResponseEntity<Notice> updateBoard(@PathVariable Long id, @RequestBody Notice boardDetails) {
+
+    // 게시글 수정
+    public Notice updateBoard(Long id, Notice boardDetails) {
         Notice notice = noticeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Board not exist with id :" + id));
 
         notice.setTitle(boardDetails.getTitle());
         notice.setContent(boardDetails.getContent());
 
-        Notice updatedBoard = noticeRepository.save(notice);
-        return ResponseEntity.ok(updatedBoard);
+        return noticeRepository.save(notice);
     }
 
-    // delete board
-    public ResponseEntity<Map<String, Boolean>> deleteBoard(@PathVariable Long id) {
+    // 게시글 삭제
+    public Map<String, Boolean> deleteBoard(Long id) {
         Notice notice = noticeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Board not exist with id :" + id));
 
@@ -104,7 +102,7 @@ public class NoticeService {
         noticeRepository.delete(notice);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
-        return ResponseEntity.ok(response);
+        return response;
     }
 
 }

@@ -74,36 +74,40 @@ public class NoticeController {
         return ResponseEntity.ok(response);
     }
 
-    // list all boards
+
     @Operation(summary = "게시글 조회", description = "전체 게시글을 조회")
     @GetMapping("/notice")
-    public Page<Notice> listAllNotices(
+    public ResponseEntity<Page<Notice>>listAllNotices(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
-        return noticeService.listAllNotices(PageRequest.of(page, size));
+        Page<Notice> notices = noticeService.listAllNotices(PageRequest.of(page, size));
+        return ResponseEntity.ok(notices);
     }
 
-    // get board by id
+
     @Operation(summary = "게시글 검색", description = "해당 게시글 검색")
     @GetMapping("/notice/{id}")
     public ResponseEntity<Notice> getBoardById(@PathVariable Long id) {
-        return noticeService.getBoardById(id);
+        Notice notice = noticeService.getBoardById(id);
+        return ResponseEntity.ok(notice);
     }
 
-    // update board
-    @Operation(summary = "게시글 수정", description = "해당 게시글 수정")
+
+    @Operation(summary = "게시글 수정", description = "게시글 수정")
     @PutMapping("/notice/{id}")
-    public ResponseEntity<Notice> updateBoard(
-            @PathVariable Long id, @RequestBody Notice boardDetails) {
-        return noticeService.updateBoard(id, boardDetails);
+    public ResponseEntity<Notice> updateBoard(@PathVariable Long id, @RequestBody Notice boardDetails) {
+        Notice updatedNotice = noticeService.updateBoard(id, boardDetails);
+        return ResponseEntity.ok(updatedNotice);
     }
 
-    // delete board
-    @Operation(summary = "게시글 삭제", description = "해당 게시글 삭제")
+
+
+    @Operation(summary = "게시글 삭제", description = "게시글 삭제")
     @DeleteMapping("/notice/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteBoard(@PathVariable Long id) {
-        return noticeService.deleteBoard(id);
+        Map<String, Boolean> response = noticeService.deleteBoard(id);
+        return ResponseEntity.ok(response);
     }
 
 }
