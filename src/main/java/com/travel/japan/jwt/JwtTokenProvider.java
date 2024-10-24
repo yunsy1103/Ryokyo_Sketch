@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +27,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class JwtTokenProvider {
 
-    private String secretKey = "c961e0b1a69f67a8da0801e32e443d949933001fc54e2a3f7263d901426d251c";
+    @Value("{jwt.secret}")
+    private String secretKey;
     // 토큰 유효시간 30분
     private long tokenValidTime =  30 * 60 * 1000L;
     // refreshToken 유효시간 30일
