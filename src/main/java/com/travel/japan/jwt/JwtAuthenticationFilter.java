@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Optional;
 
+//Access Token, Refresh Token 사용하여 인증 정보 설정
 @Slf4j
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends GenericFilterBean {
@@ -43,14 +44,8 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
             return;
         }
 
-        // GPT 경로는 필터링하지 않음
+        // firebase 경로는 필터링하지 않음
         if (path.startsWith("/firebase")) {
-            chain.doFilter(request, response);
-            return;
-        }
-
-        // GPT 경로는 필터링하지 않음
-        if (path.startsWith("/api/match")) {
             chain.doFilter(request, response);
             return;
         }
@@ -61,10 +56,8 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
             return;
         }
 
-
         String accessToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request);
         String refreshToken = jwtTokenProvider.getHeaderToken((HttpServletRequest) request);
-
 
        // log.info("Access Token: {}", accessToken);
         log.info("Access Token: {}", accessToken != null ? accessToken : "Access Token 없음");

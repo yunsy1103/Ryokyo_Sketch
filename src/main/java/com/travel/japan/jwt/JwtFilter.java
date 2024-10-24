@@ -17,11 +17,15 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.List;
 
+//JWT 검증 후 인증 정보를 설정
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
 
     private final MemberService memberService;
     private final String secretKey;
+
+    @Value("${gpt.api.key}")
+    private String apiKey;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -30,7 +34,6 @@ public class JwtFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
 
         try {
-
             // Swagger UI 관련 요청에 대해 필터를 적용하지 않음
             if (path.startsWith("/swagger-ui") || path.startsWith("/v3/api-docs") || path.startsWith("/swagger-resources")) {
                 filterChain.doFilter(request, response);
@@ -42,18 +45,11 @@ public class JwtFilter extends OncePerRequestFilter {
                 return;
             }
 
-            if (path.startsWith("/api/match"))  {
-                filterChain.doFilter(request, response);
-                return;
-            }
-
 
             if (path.startsWith("/firebase")) {
                 filterChain.doFilter(request, response);
                 return;
             }
-
-
 
             if (path.equals("/api/login") || path.equals("/api/register")) {
                 filterChain.doFilter(request, response);
@@ -100,6 +96,7 @@ public class JwtFilter extends OncePerRequestFilter {
         }
     }
 
+    //GPT API Key 인증 처리
     private void handleGptRequest(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
@@ -130,7 +127,6 @@ public class JwtFilter extends OncePerRequestFilter {
 
     private boolean isValidApiKey(String apiKey) {
         logger.debug("Checking API Key: " + apiKey);
-        String validApiKey = "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";
-        return apiKey.startsWith(validApiKey);
+        return apiKey.startsWith(apiKey);
     }
 }
