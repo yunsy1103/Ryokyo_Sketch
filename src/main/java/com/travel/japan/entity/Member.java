@@ -46,6 +46,9 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Nationality nationality;
 
+    //경도,위도 컬럼 추가
+    private double latitude;
+    private double longitude;
 
     // 상태 필드 추가
     @Builder.Default
